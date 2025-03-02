@@ -20,7 +20,7 @@ This tool **automatically analyzes descriptions** of APT tactics and techniques,
 **1: Unzip matrices.zip**, move the extracted files into the **piranha** directory.
 ```bash
 powershell.exe -c "Expand-Archive -Force matrices.zip"
-move .\matrices\matrices* .
+move .\matrices\matrices\* .
 ```
 **2: Install** python requirements.
 ```bash
