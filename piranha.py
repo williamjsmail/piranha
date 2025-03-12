@@ -14,12 +14,13 @@ import qdarktheme
 
 
 # Import your modules
-from frontend.generate import generate_mitre_freq_table, generate_report, export_to_excel, InteractiveGraph
+from frontend.generate import generate_mitre_freq_table, generate_report, InteractiveGraph
 from frontend.keywords import *
 from frontend.selection import *
 from frontend.updates import *
 from backend.loader import load_mitre_data
 from backend.processor import get_apt_groups
+from backend.export import save_to_excel
 
 
 class PiranhaApp(QMainWindow):
@@ -97,7 +98,7 @@ class PiranhaApp(QMainWindow):
         tactic_panel.addWidget(self.tactic_listbox)
 
 
-        #  Right Panel (Graph View) - This is the missing part
+        # Right Panel (Graph View) - This is the missing part
         self.graph_scene = InteractiveGraph([])
         self.graph_view = InteractiveGraphicsView(self.graph_scene)
         self.graph_view.setMinimumSize(800, 600)
@@ -112,7 +113,7 @@ class PiranhaApp(QMainWindow):
         graph_panel.addWidget(self.graph_view)
 
 
-        #  Lower Section (Dataset Selection + Table)
+        # Lower Section (Dataset Selection + Table)
         lower_layout = QVBoxLayout()
         main_layout.addLayout(lower_layout, 2)  # Lower section
 
@@ -229,8 +230,8 @@ class PiranhaApp(QMainWindow):
 
 
         export_btn = QPushButton("Export to Excel")
-        export_btn.clicked.connect(lambda: export_to_excel(
-            self.include_detections, self.use_enterprise
+        export_btn.clicked.connect(lambda: save_to_excel(
+            self.table
         ))
         button_layout.addWidget(export_btn)
 
