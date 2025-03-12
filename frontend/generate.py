@@ -12,64 +12,6 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def plot_graph(data):
-
-    if not data:
-        print("❌ No data provided to plot_graph()")
-        return None
-
-    # Create Graph
-    G = nx.Graph()
-    apts = {apt for apt, _ in data}
-    tcodes = {tcode for _, tcode in data}
-
-    G.add_nodes_from(apts, bipartite=0)
-    G.add_nodes_from(tcodes, bipartite=1)
-    G.add_edges_from(data)
-
-    pos = nx.bipartite_layout(G, apts)
-
-    # Determine shared T-codes
-    tcode_counts = {tcode: sum(1 for _, tc in data if tc == tcode) for tcode in tcodes}
-
-    node_colors = []
-    for node in G.nodes():
-        if node in apts:
-            node_colors.append("lightblue")
-        else:
-            intensity = min(1.0, 0.3 + 0.7 * (tcode_counts[node] / max(tcode_counts.values())))
-            node_colors.append((1, 0, 0, intensity))
-
-    fig, ax = plt.subplots(figsize=(8, 5))
-    nx.draw(G, pos, with_labels=True, node_size=2500, 
-            node_color=node_colors, edge_color="gray", 
-            font_size=10, font_weight="bold", ax=ax)
-    ax.set_title("APT to T-Code Mapping")
-
-    # Save graph to a file for debugging
-    fig.savefig("debug_graph.png")  #  Save image for manual verification
-    print(" Graph saved as debug_graph.png")
-
-    # Convert matplotlib figure to QImage
-    fig.canvas.draw()
-    width, height = fig.canvas.get_width_height()
-    img_data = fig.canvas.buffer_rgba()  # Get raw image data
-
-    from PyQt6.QtGui import QImage, QPixmap
-    qimage = QImage(img_data, width, height, QImage.Format.Format_ARGB32)
-    pixmap = QPixmap.fromImage(qimage)
-
-    plt.close(fig)
-
-    # Create a QGraphicsScene and add the pixmap
-    scene = QGraphicsScene()
-    scene.addPixmap(pixmap)
-    print(" Scene successfully created with defined size!")
-    
-    return scene
-
-
-
 def generate_mitre_freq_table(output_data):
     if not output_data:
         QMessageBox.critical(None, "Error", "No report data available.")
@@ -188,12 +130,12 @@ class InteractiveGraph(QGraphicsScene):
         self.G.add_nodes_from(tcodes)
         self.G.add_edges_from(data)
 
-        #  Adjust node spacing dynamically
+        # Adjust node spacing dynamically
         pos = nx.spring_layout(self.G, k=0.5, seed=42)  # Increase `k` to spread nodes out
 
         # Create nodes
         for node, (x, y) in pos.items():
-            is_apt = node in apts  #  First value in data → APT (Blue)
+            is_apt = node in apts  # First value in data → APT (Blue)
             self.add_node(node, x * 400, y * 400, is_apt)
 
         # Create edges
@@ -202,7 +144,7 @@ class InteractiveGraph(QGraphicsScene):
 
     def add_node(self, name, x, y, is_apt):
         """Assign blue to APTs and red to T-Codes based on the data structure."""
-        node_color = Qt.GlobalColor.blue if is_apt else Qt.GlobalColor.red  #  Blue for APTs, Red for T-Codes
+        node_color = Qt.GlobalColor.blue if is_apt else Qt.GlobalColor.red  # Blue for APTs, Red for T-Codes
 
         node_item = DraggableNode(x, y, 30, name, node_color)
         self.addItem(node_item)
@@ -213,19 +155,19 @@ class InteractiveGraph(QGraphicsScene):
         if src in self.node_items and dst in self.node_items:
             src_item = self.node_items[src]
             dst_item = self.node_items[dst]
-            edge = InteractiveEdge(src_item, dst_item)  #  Create edge
+            edge = InteractiveEdge(src_item, dst_item)  # Create edge
             self.addItem(edge)
             self.edge_items.append(edge)
     
     def contextMenuEvent(self, event):
         """Right-clicking outside of nodes shows filtering options. Right-clicking a node lets it handle its own menu."""
-        clicked_item = self.itemAt(event.scenePos(), QTransform())  #  Detect if a node was clicked
+        clicked_item = self.itemAt(event.scenePos(), QTransform())  # Detect if a node was clicked
 
         if isinstance(clicked_item, DraggableNode):
-            clicked_item.contextMenuEvent(event)  #  Let the node handle its own right-click menu
+            clicked_item.contextMenuEvent(event)  # Let the node handle its own right-click menu
             return
 
-        #  If right-clicking on empty space, show filtering menu
+        # If right-clicking on empty space, show filtering menu
         menu = QMenu()
         show_shared_action = menu.addAction("Show Only Shared T-Codes")
         restore_action = menu.addAction("Restore Full Graph")
@@ -246,7 +188,7 @@ class InteractiveGraph(QGraphicsScene):
         shared_tcodes = self.get_shared_tcodes()
         visible_apts = set()
 
-        print(f"DEBUG: Shared T-Codes: {shared_tcodes}")  #  Debugging
+        print(f"DEBUG: Shared T-Codes: {shared_tcodes}")  # Debugging
 
         #  Identify APTs connected to shared T-Codes
         for src, dst in list(self.G.edges()):
