@@ -20,7 +20,7 @@ class CompareToProfileTab(QWidget):
         layout.setContentsMargins(20, 20, 20, 20)
 
         # Instructions with slightly larger font for prominence
-        instructions = QLabel("Compare imported Nessus scan to one or more threat profiles:")
+        instructions = QLabel("Compare Imported Nessus Scan to One or More Piranha Profiles:")
         instructions.setStyleSheet("font-size: 16px; font-weight: bold;")
         layout.addWidget(instructions)
 
