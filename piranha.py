@@ -918,7 +918,7 @@ class PiranhaApp(QMainWindow):
                     item.setSelected(True)
                     
     def load_profile_and_generate_report(self):
-        file_path, _ = QFileDialog.getOpenFileName(self, "Select Profile", "", "Threat Profiles (*.pir)")
+        file_path, _ = QFileDialog.getOpenFileName(self, "Select Profile", "", "Piranha Profiles (*.pir)")
         if not file_path:
             return
 
