@@ -25,6 +25,17 @@ pip install -r requirements.txt
 python piranha.py
 ```
 
+### Updates
+Piranha is updated regularly with new features and bug fixes.
+MITRE data is updated according to the regular MITRE update schedule (last updated April 22, 2025).
+CVE mappings should be updated manually at least once weekly. Automatic updates will be included as a future feature.
+```bash
+python .\CVE2CAPEC\retrieve_cve.py
+python .\CVE2CAPEC\cve2cwe.py
+python .\CVE2CAPEC\cwe2capec.py
+python .\CVE2CAPEC\capec2technique.py
+```
+
 ## Authors
 
 - [@williamjsmail](https://github.com/williamjsmail)
