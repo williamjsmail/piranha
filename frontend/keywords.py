@@ -2,28 +2,33 @@ import os
 import json
 from PyQt6.QtWidgets import (
     QMessageBox, QDialog, QVBoxLayout, QLabel, QPushButton, QLineEdit, QTextEdit, QListWidget,
-    QHBoxLayout, QScrollArea
+    QHBoxLayout
 )
 from backend.logging_config import logger
 from backend.loader import load_keyword_ioc_mapping
 
 KEYWORD_IOC_MAPPING = load_keyword_ioc_mapping()
-KEYWORD_IOC_FILE = os.path.join(os.path.dirname(__file__), "backend", "files", "KEYWORD_IOC_MAPPING.json")
+KEYWORD_IOC_FILE = os.path.join(os.path.dirname(__file__), "..", "backend", "files", "KEYWORD_IOC_MAPPING.json")
 
 def save_keyword_ioc_mapping():
+    """Save the updated KEYWORD_IOC_MAPPING dictionary to the JSON file."""
     try:
         formatted_data = {
             key: {
-                "ioc": value["ioc"],
-                "tools": list(value["tools"])
-            } 
+                "ioc": list(value["ioc"]),  #  Convert set to list
+                "tools": list(value["tools"])  #  Convert set to list
+            }
             for key, value in KEYWORD_IOC_MAPPING.items()
         }
 
+        #  Open file in write mode & update data
         with open(KEYWORD_IOC_FILE, "w", encoding="utf-8") as f:
             json.dump(formatted_data, f, indent=4)
 
-        logger.info("Successfully saved updated keyword-to-IOC mapping.")
+            f.flush()
+            os.fsync(f.fileno())
+
+        logger.info(f" Successfully saved updated keyword-to-IOC mapping.")
 
     except Exception as e:
         logger.error(f"Failed to save keyword mapping: {e}")
@@ -137,6 +142,8 @@ def delete_keyword(parent, listbox):
         QMessageBox.information(parent, "Success", f"Keyword '{selected_keyword}' deleted.")
 
 def manage_keywords_popup(parent):
+    global KEYWORD_IOC_MAPPING
+
     popup = QDialog(parent)
     popup.setWindowTitle("Manage Keywords")
     popup.resize(600, 400)
@@ -144,13 +151,24 @@ def manage_keywords_popup(parent):
     popup.setLayout(layout)
 
     search_entry = QLineEdit()
-    search_entry.setPlaceholderText("Search Keywords")
+    search_entry.setPlaceholderText("Search Keywords...")
     layout.addWidget(search_entry)
 
     keyword_listbox = QListWidget()
     layout.addWidget(keyword_listbox)
 
-    keyword_listbox.addItems(sorted(KEYWORD_IOC_MAPPING.keys()))
+    #  Store all keywords for reference
+    all_keywords = sorted(KEYWORD_IOC_MAPPING.keys())
+    keyword_listbox.addItems(all_keywords)
+
+    def filter_keywords():
+        """Filter the keyword list based on the search input."""
+        search_text = search_entry.text().lower()
+        keyword_listbox.clear()
+        filtered_keywords = [kw for kw in all_keywords if search_text in kw.lower()]
+        keyword_listbox.addItems(filtered_keywords)
+
+    search_entry.textChanged.connect(filter_keywords)
 
     button_layout = QHBoxLayout()
     layout.addLayout(button_layout)
@@ -171,4 +189,4 @@ def manage_keywords_popup(parent):
     close_btn.clicked.connect(popup.accept)
     layout.addWidget(close_btn)
 
-    popup.exec()
+    popup.show()

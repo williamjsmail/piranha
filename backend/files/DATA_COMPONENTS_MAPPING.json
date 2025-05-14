@@ -1,0 +1,364 @@
+{
+    "Active Directory: Active Directory Credential Request": [
+        "Host Collection"
+    ],
+    "Active Directory: Active Directory Object Access": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Active Directory: Active Directory Object Creation": [
+        "Host Collection"
+    ],
+    "Active Directory: Active Directory Object Deletion": [
+        "Host Collection"
+    ],
+    "Active Directory: Active Directory Object Modification": [
+        "Host Collection"
+    ],
+    "Application Log: Application Log Content": [
+        "Host Collection"
+    ],
+    "Certificate: Certificate Registration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Cloud Service: Cloud Service Disable": [
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Cloud Service: Cloud Service Enumeration": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Cloud Service: Cloud Service Metadata": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Cloud Service: Cloud Service Modification": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Access": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Creation": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Deletion": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Enumeration": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Metadata": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Cloud Storage: Cloud Storage Modification": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Command: Command Execution": [
+        "Host Interrogation"
+    ],
+    "Container: Container Creation": [
+        "Host Collection"
+    ],
+    "Container: Container Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Container: Container Start": [
+        "Host Interrogation"
+    ],
+    "Domain Name: Active DNS": [
+        "Network Collection"
+    ],
+    "Domain Name: Domain Registration": [
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Domain Name: Passive DNS": [
+        "Network Collection"
+    ],
+    "Drive: Drive Access": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Drive: Drive Creation": [
+        "Host Collection"
+    ],
+    "Drive: Drive Modification": [
+        "Host Collection"
+    ],
+    "Driver: Driver Load": [
+        "Host Memory Analysis"
+    ],
+    "Driver: Driver Metadata": [
+        "Host Collection",
+        "Host Memory Analysis"
+    ],
+    "File: File Access": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "File: File Creation": [
+        "Host Collection"
+    ],
+    "File: File Deletion": [
+        "Host Collection"
+    ],
+    "File: File Metadata": [
+        "Host Collection"
+    ],
+    "File: File Modification": [
+        "Host Collection"
+    ],
+    "Firewall: Firewall Disable": [
+        "Host Interrogation"
+    ],
+    "Firewall: Firewall Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Firewall: Firewall Metadata": [
+        "Host Collection"
+    ],
+    "Firewall: Firewall Rule Modification": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Firmware: Firmware Modification": [
+        "Host Collection"
+    ],
+    "Group: Group Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Group: Group Metadata": [
+        "Host Collection"
+    ],
+    "Group: Group Modification": [
+        "Host Collection"
+    ],
+    "Image: Image Creation": [
+        "Host Collection"
+    ],
+    "Image: Image Deletion": [
+        "Host Collection"
+    ],
+    "Image: Image Metadata": [
+        "Host Collection"
+    ],
+    "Image: Image Modification": [
+        "Host Collection"
+    ],
+    "Instance: Instance Creation": [
+        "Host Collection"
+    ],
+    "Instance: Instance Deletion": [
+        "Host Collection"
+    ],
+    "Instance: Instance Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Instance: Instance Metadata": [
+        "Host Collection"
+    ],
+    "Instance: Instance Modification": [
+        "Host Collection"
+    ],
+    "Instance: Instance Start": [
+        "Host Interrogation"
+    ],
+    "Instance: Instance Stop": [
+        "Host Interrogation"
+    ],
+    "Internet Scan: Response Content": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Internet Scan: Response Metadata": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Kernel: Kernel Module Load": [
+        "Host Memory Analysis"
+    ],
+    "Logon Session: Logon Session Creation": [
+        "Host Collection"
+    ],
+    "Logon Session: Logon Session Metadata": [
+        "Host Collection"
+    ],
+    "Malware Repository: Malware Content": [
+        "Host Collection"
+    ],
+    "Malware Repository: Malware Metadata": [
+        "Host Collection"
+    ],
+    "Module: Module Load": [
+        "Host Memory Analysis"
+    ],
+    "Named Pipe: Named Pipe Metadata": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Network Share: Network Share Access": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Network Traffic: Network Connection Creation": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Network Traffic: Network Traffic Content": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Network Traffic: Network Traffic Flow": [
+        "Network Collection"
+    ],
+    "Persona: Social Media": [
+        "Host Interrogation"
+    ],
+    "Pod: Pod Creation": [
+        "Host Collection"
+    ],
+    "Pod: Pod Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Pod: Pod Modification": [
+        "Host Collection"
+    ],
+    "Process: OS API Execution": [
+        "Host Interrogation",
+        "Host Memory Analysis"
+    ],
+    "Process: Process Access": [
+        "Host Collection",
+        "Host Interrogation",
+        "Host Memory Analysis"
+    ],
+    "Process: Process Creation": [
+        "Host Collection"
+    ],
+    "Process: Process Metadata": [
+        "Host Collection"
+    ],
+    "Process: Process Modification": [
+        "Host Collection"
+    ],
+    "Process: Process Termination": [
+        "Host Interrogation"
+    ],
+    "Scheduled Job: Scheduled Job Creation": [
+        "Host Collection"
+    ],
+    "Scheduled Job: Scheduled Job Metadata": [
+        "Host Collection"
+    ],
+    "Scheduled Job: Scheduled Job Modification": [
+        "Host Collection"
+    ],
+    "Script: Script Execution": [
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Sensor Health: Host Status": [
+        "Host Collection"
+    ],
+    "Service: Service Creation": [
+        "Host Collection"
+    ],
+    "Service: Service Metadata": [
+        "Host Collection"
+    ],
+    "Service: Service Modification": [
+        "Host Collection"
+    ],
+    "Snapshot: Snapshot Creation": [
+        "Host Collection"
+    ],
+    "Snapshot: Snapshot Deletion": [
+        "Host Collection"
+    ],
+    "Snapshot: Snapshot Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Snapshot: Snapshot Metadata": [
+        "Host Collection"
+    ],
+    "Snapshot: Snapshot Modification": [
+        "Host Collection"
+    ],
+    "User Account: User Account Authentication": [
+        "Host Interrogation"
+    ],
+    "User Account: User Account Creation": [
+        "Host Collection"
+    ],
+    "User Account: User Account Deletion": [
+        "Host Collection"
+    ],
+    "User Account: User Account Metadata": [
+        "Host Collection"
+    ],
+    "User Account: User Account Modification": [
+        "Host Collection"
+    ],
+    "Volume: Volume Creation": [
+        "Host Collection"
+    ],
+    "Volume: Volume Deletion": [
+        "Host Collection"
+    ],
+    "Volume: Volume Enumeration": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Volume: Volume Metadata": [
+        "Host Collection"
+    ],
+    "Volume: Volume Modification": [
+        "Host Collection"
+    ],
+    "WMI: WMI Creation": [
+        "Host Collection",
+        "Host Memory Analysis"
+    ],
+    "Web Credential: Web Credential Creation": [
+        "Host Collection",
+        "Network Collection"
+    ],
+    "Web Credential: Web Credential Usage": [
+        "Host Collection",
+        "Host Interrogation",
+        "Network Collection"
+    ],
+    "Windows Registry: Windows Registry Key Access": [
+        "Host Collection",
+        "Host Interrogation"
+    ],
+    "Windows Registry: Windows Registry Key Creation": [
+        "Host Collection"
+    ],
+    "Windows Registry: Windows Registry Key Deletion": [
+        "Host Collection"
+    ],
+    "Windows Registry: Windows Registry Key Modification": [
+        "Host Collection"
+    ]
+}

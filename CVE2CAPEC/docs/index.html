@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCCFW6FDGQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NCCFW6FDGQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <title>CVE2CAPEC</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat");
+        html {
+            height: 100%;
+            scrollbar-width: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 100%;
+        }
+
+        .column {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            max-height: 400px;
+            overflow: scroll;
+        }
+
+        .legend {
+            font-family: Verdana, Arial, Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            font-size: medium;
+            color: gray;
+        }
+
+        #cves[placeholder]:empty::before {
+            content: attr(placeholder);
+            color: lightgray; 
+        }
+
+        #cves[placeholder]:empty:focus::before {
+            content: "";
+        }
+
+        .arrow {
+            position: absolute;
+            /*left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);*/
+            color: #0d6efd;
+            text-decoration: none;
+            /*font-size: 2em;*/
+            display: inline-block;
+            font-family: Montserrat;
+            /*text-transform: uppercase;*/
+            padding: 0.5em 2em;
+            border: 2px solid #0d6efd;
+            transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        .arrow::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 100%;
+            bottom: 0;
+            background: #0d6efd;
+            transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .arrow::after {
+            content: "";
+            display: inline-block;
+            background-image: url("https://cdn-icons-png.flaticon.com/128/109/109617.png");
+            position: absolute;
+            top: 0;
+            left: calc(100% - 3em);
+            right: 3em;
+            bottom: 0;
+            background-size: 1.5em;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        .arrow:hover {
+            padding: 0.5em 3.5em 0.5em 0.5em;
+        }
+
+        .arrow:hover::before {
+            left: calc(100% - 3em);
+            right: 0;
+            transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        .arrow:hover::after {
+            right: 0;
+            transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        .toggle-fullscreen-btn {
+            position: fixed;
+            z-index: 10000;
+            top: 10px;
+            right: 10px;
+            border: 0;
+            padding: 0;
+            background: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        .toggle-fullscreen-svg {
+            display: block;
+            height: auto;
+        }
+
+        .toggle-fullscreen-svg path {
+            transform-box: view-box;
+            transform-origin: 12px 12px;
+            fill: none;
+            stroke: hsl(225, 10%, 8%);
+            stroke-width: 4;
+            transition: .15s;
+        }
+
+
+        .toggle-fullscreen-btn:hover path:nth-child(1),
+        .toggle-fullscreen-btn:focus path:nth-child(1) {
+            transform: translate(-2px, -2px);
+        }
+
+        .toggle-fullscreen-btn:hover path:nth-child(2),
+        .toggle-fullscreen-btn:focus path:nth-child(2) {
+            transform: translate(2px, -2px);
+        }
+
+        .toggle-fullscreen-btn:hover path:nth-child(3),
+        .toggle-fullscreen-btn:focus path:nth-child(3) {
+            transform: translate(2px, 2px);
+        }
+
+        .toggle-fullscreen-btn:hover path:nth-child(4),
+        .toggle-fullscreen-btn:focus path:nth-child(4) {
+            transform: translate(-2px, 2px);
+        }
+
+
+        .toggle-fullscreen-btn:not(.on) .icon-fullscreen-leave {
+            display: none;
+        }
+
+        .toggle-fullscreen-btn.on .icon-fullscreen-enter {
+            display: none;
+        }
+
+        .hr-tooltip {
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+
+        @media (max-width: 991px) {
+            .process {
+                margin-bottom: 2%;
+            }
+
+            .process-row {
+                margin-top: 2%;
+                padding-right: 0 !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <span class="navbar-brand">CVE2CAPEC</span>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item text-justify mt-2 mt-lg-0">
+                    <span class="navbar-text">
+                        Made with ❤️ in 🇫🇷 by <a href="https://galeax.com">Galeax</a>
+                    </span>
+                </li>
+                <li class="nav-item container-fluid mt-2 mt-lg-0" style="width: fit-content;">
+                    <span class="navbar-text">
+                        <a class="github-button" href="https://github.com/Galeax/CVE2CAPEC" data-color-scheme="no-preference: dark; light: light_high_contrast; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star galeax/CVE2CAPEC on GitHub">Star</a>
+                    </span>
+                    <span class="navbar-text">
+                        <a class="github-button" href="https://github.com/Galeax/CVE2CAPEC" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Watch Galeax/CVE2CAPEC on GitHub"></a>
+                    </span>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="text-center text-secondary">Type a list of CVEs (step 1), click on the Generate button (step 2) to compute CWE, CAPEC, and Techniques, and draw the MITRE ATT&CK navigator.</p>
+                <p class="text-center"><button class="btn btn-outline-secondary" type="button" onclick="example()">Try an example</button></p>
+            </div>
+        </div>
+        <div class="row mx-3">
+            <div class="col-lg-3 col-md-12">
+                <h4 class="text-center">1. List of CVEs</h4>
+                <div class="card column">
+                    <div class="card-body" placeholder="CVE-2024-37079..." contenteditable="true" id="cves">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 d-flex align-items-center process">
+                <div class="row mx-auto process-row" style="padding-right: 4%;">
+                    <button type="button" class="btn btn-primary mx-auto" onclick="process()">2. Generate<br/>MITRE ATT&CK</button>
+                    <select id="layer_type" class="form-select mt-2 text-center bg-secondary-subtle">
+                        <option value="enterprise">Enterprise</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="ics">ICS</option>
+                    </select>
+                    <button type="button" class="btn btn-outline-secondary mx-auto mt-2" onclick="share()">Share current config</button>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 position-relative bg-white">
+                <div class="mx-3" style="width: 100%; min-height: 400px;" id="container"></div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100%; position: relative;" id="frame" hidden>
+    </div>
+    <div class="modal fade" role="dialog" id="modal" tabindex="-1" aria-labelledby="modal">
+        <div class="modal-dialog" role="document" style="max-width: 100%; margin: 2%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sub graph for selected Techniques</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="subgraph" style="width: 100%; height: 100%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+</body>
+
+<script>
+    var data_cleaned = [];
+    var chart = echarts.init(document.getElementById('container'), null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+    var modal_chart = echarts.init(document.getElementById('subgraph'), null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+    window.addEventListener('resize', modal_chart.resize);
+    window.addEventListener('resize', chart.resize);
+    document.getElementById('modal').addEventListener('shown.bs.modal', function () {
+        modal_chart.resize();
+    });
+    var chart_nodes = [];
+    var chart_links = [];
+    var selected_techniques = [];
+
+    // Avoid Copy/Paste formatting in contenteditable div
+    document.querySelector('[contenteditable]').addEventListener('paste', function (event) {
+        event.preventDefault();
+        document.execCommand('inserttext', false, event.clipboardData.getData('text/plain'));
+    });
+
+    document.querySelector("#layer_type").addEventListener('change', function() {
+        adapt();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        check_param();
+
+        var contentEditableElements = document.querySelectorAll('[contenteditable]');
+
+        // Function to check if the element is empty and clear it
+        function checkAndClear(element) {
+            if (!element.textContent.trim().length) {
+                element.innerHTML = '';  
+            }
+        }
+
+        contentEditableElements.forEach(function(element) {
+            checkAndClear(element);
+
+            element.addEventListener('focusout', function() {
+                checkAndClear(element);
+            });
+        });
+    });
+
+
+    async function adapt() {
+        var layer_type = document.getElementById('layer_type').value
+        var cves = document.getElementById('cves').innerText.trim().replace(/\n/g, ',');
+        var cves_gzip = await compress(cves, 'gzip');
+        var cves_b64 = btoa(String.fromCharCode.apply(null, new Uint8Array(cves_gzip)));
+        history.pushState({}, '', `?layer=${layer_type}&input=${cves_b64}`);
+    }
+
+
+    async function check_param() {
+        var url_params = new URLSearchParams(window.location.search);
+        var cves_param = url_params.get('input');
+        var layer_param = url_params.get('layer');
+        if (layer_param) {
+            document.getElementById('layer_type').value = layer_param;
+        }
+        if (cves_param) {
+            var cves_b64 = atob(cves_param);
+            var cves_gzip = new Uint8Array(cves_b64.split('').map(c => c.charCodeAt(0)));
+            var cves = await decompress(cves_gzip, 'gzip');
+            document.getElementById('cves').innerText = cves.replace(/,/g, '\n');
+
+            await process(true);
+        }
+    }
+
+    // Gzip compression
+    function compress(string, encoding) {
+        const byteArray = new TextEncoder().encode(string);
+        const cs = new CompressionStream(encoding);
+        const writer = cs.writable.getWriter();
+        writer.write(byteArray);
+        writer.close();
+        return new Response(cs.readable).arrayBuffer();
+        }
+
+    // Gzip decompression
+    function decompress(byteArray, encoding) {
+        const cs = new DecompressionStream(encoding);
+        const writer = cs.writable.getWriter();
+        writer.write(byteArray);
+        writer.close();
+        return new Response(cs.readable).arrayBuffer().then(function (arrayBuffer) {
+            return new TextDecoder().decode(arrayBuffer);
+        });
+    }
+
+
+    async function process(page_load = false) {
+
+        // clear all data are not CVE-XXXX-XXXX format
+        var cvesElement = document.getElementById('cves');
+
+        var cves = document.getElementById('cves').innerText.trim();
+        var cvesArray = cves.split('\n').map(cve => cve.trim()).filter(cve => /^CVE-\d{4}-\d{4,}$/.test(cve));
+        cves = cvesArray.join('\n');
+        cvesElement.innerText = cves;
+
+        if (!cves) {
+            if (page_load) { // Do not show the alert if it's not a page load
+                chart.hideLoading();
+                return;
+            }
+            Swal.fire({
+                icon: 'warning',
+                title: 'No CVEs found',
+                text: 'Please enter some CVEs.',
+            });
+            chart.hideLoading();
+            return;
+        }
+
+        chart.showLoading();
+
+        const [techniquesAssoc, cweDataRaw, capecDataRaw] = await Promise.all([
+            fetch('http://localhost:8000/resources/techniques_association.json').then(res => res.json()),
+            fetch('http://localhost:8000/resources/cwe_db.json').then(res => res.json()),
+            fetch('http://localhost:8000/resources/capec_db.json').then(res => res.json())
+        ]).catch(error => {
+            console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'An error occurred',
+                text: 'Failed to fetch required databases',
+            });
+            chart.hideLoading();
+            return;
+        });
+
+
+
+        data_cleaned = new Set();
+        var cves_not_found = [];
+
+        var techniques_association;
+
+        // Group by year
+        var cves_list = cvesArray.reduce((acc, cve) => {
+            const year = cve.split('-')[1];
+            (acc[year] = acc[year] || []).push(cve);
+            return acc;
+        }, {});
+
+        var data = [];
+
+        for (var [year, yearCves] of Object.entries(cves_list)) {
+            var database;
+            try {
+                var response = await fetch(`https://raw.githubusercontent.com/Galeax/CVE2CAPEC/refs/heads/main/database/CVE-${year}.jsonl`);
+                var responseText = await response.text();
+                database = Object.fromEntries(responseText.split('\n').map(line => {
+                    if (line.trim()) {
+                        try {
+                            var parsed = JSON.parse(line);
+                            var key = Object.keys(parsed)[0];
+                            var value = parsed[key];
+                            // Check if parses is a valid JSON object
+                            if (key && value) {
+                                return [key, value];
+                            }
+                        } catch (parseError) {
+                            console.error('Error parsing JSON line:', line);
+                        }
+                    }
+                    return null; // Return null if the line is empty or not a valid JSON
+                }).filter(Boolean)); // Filter out null values
+            } catch (error) {
+                console.error(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'An error occurred',
+                    text: 'Failed to fetch the database for year ' + year,
+                });
+                continue; // Skip this year if there is an error
+            }
+
+            yearCves.forEach(cve => {
+                var cveData = database[cve];
+                if (!cveData) {
+                    cves_not_found.push(cve);
+                    return;
+                }
+                
+                cveData.CWE.forEach(cwe => {
+                    data.push({source: cve, target: 'CWE-' + cwe, value: 1});
+                    var relatedCapecs = cweDataRaw[cwe]?.RelatedAttackPatterns || [];
+                    relatedCapecs.forEach(capec => {
+                        data.push({source: 'CWE-' + cwe, target: 'CAPEC-' + capec, value: 1});
+                        var lines = capecDataRaw[capec]?.techniques.split("NAME:ATTACK:ENTRY ")
+                        var relatedTechniques = new Set()
+                        for (var i = 1; i < lines.length; i++) {
+                            var technique_id = lines[i].split(":")[1];
+                            if (layer_type.value === "ics") {
+                                technique_id = techniquesAssoc[technique_id]?.ics;
+                            } else if (layer_type.value === "mobile") {
+                                technique_id = techniquesAssoc[technique_id]?.mobile;
+                            }
+                            if (technique_id) {
+                                relatedTechniques.add(technique_id);
+                            }
+                        }
+                        relatedTechniques.forEach(technique => {
+                            data.push({source: 'CAPEC-' + capec, target: 'T' + technique, value: 1});
+                        });
+                    });
+                })
+            })
+        }
+
+        data.forEach(node => {
+            key = node.source;
+            if (!data_cleaned.has(key)) {
+                data_cleaned.add(key);
+            } else {
+                var existingNode = Array.from(data_cleaned).find(n => n.source === node.source && n.target === node.target);
+                if (existingNode) {
+                    existingNode.value++;
+                }
+            }
+        });
+
+        var chartNodes = new Set();
+        data.forEach(link => {
+            chartNodes.add(link.source);
+            chartNodes.add(link.target);
+        });
+        var chartLinks = Array.from(data);
+
+        chart_nodes = Array.from(chartNodes).map(node => ({name: node}))
+        chart_links = data
+   
+        var option = {
+            tooltip: {
+                    trigger: 'item',
+                    triggerOn: 'mousemove',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    formatter: function(params) {
+                        if (params.dataType === 'node') {
+                            let nodeName = params.data.name;
+                            let nodeValue = params.value || 'N/A';
+                            let incomingNodes = data
+                                .filter(link => link.target === nodeName)
+                                .map(link => link.source)
+                                .join('<br/>- ');
+                            let outgoingNodes = data
+                                .filter(link => link.source === nodeName)
+                                .map(link => link.target)
+                                .join('<br/>- ');
+                            
+                                var ret = `<b>${nodeName} (${nodeValue})</b><hr class="hr-tooltip" />`;
+                            if (incomingNodes) {
+                                ret += `<u>From:</u><br>- ${incomingNodes}<br>`;
+                            }
+                            if (outgoingNodes) {
+                                ret += `<u>To:</u><br>- ${outgoingNodes}`;
+                            }
+                            return ret;
+                        } else {
+                            return `${params.data.source} → ${params.data.target}: ${params.data.value}`;
+                        }
+                    }
+                },
+            annimation: false,
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {
+                        show: true,
+                        title: 'Save as image',
+                        type: 'png',
+                        name: 'CVE2CAPEC - CVEs Data Flow',
+                        backgroundColor: '#fff',
+                    },
+                    restore: {
+                        show: true,
+                        title: 'Restore',
+                    },
+                    myFullScreen: {
+                        show: true,
+                        title: 'Plein Écran',
+                        icon: 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACvUlEQVR4nO3dTW7TUBQF4MeP2AJjkAAJKIxYAIvINqL4nHrsFUEpqFL52wRsggmCYgQtIAU94QGqSFLa93xukvNJHuf43Loe+MpOyczMzMzMzMzMbEORnFc+jgA8n81m92qdw+7u7gOSr0ge1z6ftAEDmQ9H3zTNToX8jwCcjHUepfMrBzIH8LJC/ndjnkPp/OqBnEwmkyulsk+n0+tj5vdAVvBALv4XdpgKA/DeV8j5htGTvF96IE3TPCb5zf+yzn7f+Exyn+Td0sP4ayg7JN8A+L7x95C0ZajuQx4gGHkf8gDByPuQBwhG3oc8QDDyPuQBgpH3IQ8QjLwPeYBg5H3IAwQj70MeIBh5H/IAwcj7kAcIRt6HPEAw8j7kAYKR9yEPEIy8D3mAYOR9DA+QFgX4lLYMyQ+L+gDwpXqAvMS2ZCD7acsAeLKkj73qAfJG4fC8+/SP9zW3DaNq2/ZWvhIW9HFzlBD5mXReYiP5Y9gCPKyxkLAu2ra9A+Dt0MdPAK+bpnk4epC8xFZykW3ddV13reu6q+ocZmZmZmZmZmZmZmZmZmZmdkp+oO8lhwB9ALidV11I/sqHbO0lCGkf+YcWLcrVeANcdPI+SB4sWZ18kbYM1X0A+LokQJ+2DNR9yNfvg5H3IQ8QjLwPeYBg5H3IAwQj70MeIBh5H/IAwcj7kAcIRt6HPEAw8j7kAYKR9yEPEIy8D3mAYOR9yAMEI+9DHiAYeR/yAMHI+5AHCEbehzxAMPI+VgUocPQAntZ8T0h+J8vwEp2j2ueTNmAg83zk10DVGMrw7ZB/PQP3QM5QwkHpgQzfLxxlGBt1hfDPcdx13eVS2fPOVH5jjwdygYGklC55IEGuEADPUmHDe778L+scJXzMG4GlB+Kb+v8Poh++0nYjVZK/AJd/Y8ULPdfjpm5mZmZmZmZmqZ7frkDXeF36/ksAAAAASUVORK5CYII=',
+                        onclick: function () {
+                            if (document.fullscreenElement) {
+                                document.exitFullscreen();
+                            } else {
+                                document.getElementById('container').requestFullscreen();
+                            }
+                        }
+                    }
+                }
+            },
+            backgroundColor: '#fff',
+            series: {
+                type: 'sankey',
+                emphasis: {
+                    focus: 'trajectory',
+                },
+                nodeAlign: 'center',
+                nodeWidth: 20,  // Largeur des nœuds pour réduire l'encombrement
+                nodeGap: 5,    // Ajustement de l'espace entre les nœuds
+                layoutIterations: 64, // Nombre d'itérations pour le calcul de la disposition
+                label: {
+                    fontSize: 12, // Taille de police réduite
+                },
+                data: chart_nodes,
+                links: chart_links,
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.5
+                }
+            }
+        }
+
+        if (option && typeof option === 'object') {
+            chart.setOption(option);
+        }
+        var cvesUrlEncoded = btoa(String.fromCharCode.apply(null, new Uint8Array(await compress(cvesArray.join(','), 'gzip'))));
+        history.pushState({}, '', `?layer=${document.getElementById('layer_type').value}&input=${cvesUrlEncoded}`);
+
+        await create_mitre_layer();
+
+        if (cves_not_found.length > 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Some CVEs not found',
+                text: 'The following CVEs were not found in the database: ' + cves_not_found.join(', '),
+            });
+        }
+
+        chart.hideLoading();
+
+        print_mitre();
+    }
+
+
+    async function create_mitre_layer() {
+        var data_layer = {};
+        
+        // Get the list of techniques, some node.to maybe null
+        var techniques_list = chart.getOption().series[0].links;
+        var max_score = 0;
+        var layer_type = document.getElementById('layer_type').value;
+        var enterprise_plateform = ["Windows", "Linux", "macOS", "Network", "PRE", "Containers", "Office 365", "SaaS", "Google Workspace", "IaaS", "Azure AD"];
+        var mobile_plateform = ["Android", "iOS"];
+        var ics_plateform = ["None"];
+
+
+        for (var i = 0; i < techniques_list.length; i++) {
+            var element = techniques_list[i];
+            var technique = element.target;
+            var score = element.value;
+            if (!data_layer[technique]) {
+                data_layer[technique] = score;
+            } else {
+                data_layer[technique] += score;
+            }
+        }
+
+        var tmp = Object.assign({}, data_layer);
+        for (var key in tmp) {
+            if (key.match(/T\d+\.\d+/)) {
+                var parent = key.split('.')[0];
+                if (data_layer[parent]) {
+                    data_layer[parent] += data_layer[key];
+                } else {
+                    data_layer[parent] = data_layer[key];
+                }
+            }
+        }
+        
+        // Calculate the max score, max score is the highest score of a technique or subtechnique
+        for (var key in data_layer) {
+            var score = data_layer[key];
+            if (score > max_score) {
+                max_score = score;
+            }
+        }
+
+        var layer = {
+            "name": "CVE2CAPEC - New CVEs layer",
+            "versions": {
+                "attack": "16",
+                "navigator": "5.1.0",
+                "layer": "4.5"
+            },
+            "domain": layer_type + "-attack",
+            "description": "",
+            "filters": {
+                "platforms": layer_type === "enterprise" ? enterprise_plateform : layer_type === "mobile" ? mobile_plateform : ics_plateform,
+            },
+            "sorting": 3,
+            "layout": {
+                "layout": "side",
+                "aggregateFunction": "average",
+                "showID": false,
+                "showName": true,
+                "showAggregateScores": false,
+                "countUnscored": false,
+                "expandedSubtechniques": "none"
+            },
+            "hideDisabled": false,
+            "techniques": [],
+            "gradient": {
+                "colors": [
+                    "#ffe766ff",
+                    "#ff9558",
+                    "#ff6666ff"
+                ],
+                "minValue": 0,
+                "maxValue": max_score
+            },
+            "legendItems": [],
+            "metadata": [],
+            "links": [],
+            "showTacticRowBackground": false,
+            "tacticRowBackground": "#dddddd",
+            "selectTechniquesAcrossTactics": true,
+            "selectSubtechniquesWithParent": false,
+            "selectVisibleTechniques": false,
+        };
+
+        try {
+            var response = await fetch('http://localhost:8000/resources/techniques_db.json');
+            var responseText = await response.text();
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'An error occurred',
+                text: 'Failed to fetch the techniques database',
+            });
+            return;
+        }
+
+        var techniques_db = JSON.parse(responseText);
+
+        for (var key in data_layer) {
+            var tactics = techniques_db[key];
+            if (!tactics) {
+                continue;
+            }
+            for (var j = 0; j < tactics.length; j++) {
+                var tactic = tactics[j];
+                var row = {
+                    "techniqueID": key,
+                    "tactic": tactic.toLowerCase().replace(' ', '-'),
+                    "color": "",
+                    "comment": "",
+                    "enabled": true,
+                    "metadata": [],
+                    "links": [],
+                    "showSubtechniques": false
+                };
+                if (data_layer[key] > 0) {
+                    row["score"] = data_layer[key];
+                }
+                layer.techniques.push(row);
+            }
+        }
+
+        localStorage.setItem('layer', JSON.stringify(layer));
+
+
+    }
+
+    function waitForElm(selector) {
+        return new Promise(resolve => {
+            if (document.getElementById('mitre').contentWindow.document.querySelector(selector)) {
+                return resolve(document.getElementById('mitre').contentWindow.document.querySelector(selector));
+            }
+
+            const observer = new MutationObserver(mutations => {
+                if (document.getElementById('mitre').contentWindow.document.querySelector(selector)) {
+                    observer.disconnect();
+                    resolve(document.getElementById('mitre').contentWindow.document.querySelector(selector));
+                }
+            });
+
+            // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
+            observer.observe(document.getElementById('mitre').contentWindow.document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    }
+
+    async function print_mitre() {
+        var layer = localStorage.getItem('layer');
+        if (!layer) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No layer found',
+                text: 'Please enter CVEs and click on Process first.',
+            });
+            return;
+        }
+        
+        // add iframe to display the MITRE ATT&CK matrix
+        if (document.getElementById('mitre')) {
+            document.getElementById('mitre').remove();
+        }
+
+
+        iframe.onload = function() {
+            // Vérifier si on peut accéder au contenu de l'iframe
+            var iframe = document.getElementById('mitre');
+            var iframeDoc = iframe.contentWindow.document;
+
+            // Créer le bouton dynamiquement
+            var div = iframeDoc.createElement('div');
+            var div_sub_graph = iframeDoc.createElement('div');
+
+            var button_screen = iframeDoc.createElement('button');
+
+            button_screen.innerHTML = '<svg class="toggle-fullscreen-svg frame-full" width="28" height="28" viewBox="-2 -2 28 28"><g class="icon-fullscreen-enter"><path d="M 2 9 v -7 h 7" /><path d="M 22 9 v -7 h -7" /><path d="M 22 15 v 7 h -7" /><path d="M 2 15 v 7 h 7" /></g><g class="icon-fullscreen-leave"><path d="M 24 17 h -7 v 7" /><path d="M 0 17 h 7 v 7" /><path d="M 0 7 h 7 v -7" /><path d="M 24 7 h -7 v -7" /></g></svg>';
+            button_screen.className = "js-toggle-fullscreen-btn toggle-fullscreen-btn";
+            button_screen.title = "Enter fullscreen mode";
+            button_screen.onclick = function() {
+                parent.fullscreen();
+            };
+
+            var button_sub_graph = iframeDoc.createElement('button');
+
+            button_sub_graph.type = "button";
+            button_sub_graph.innerHTML = "Generate Sub graph<br>for selected Techniques";
+            button_sub_graph.className = "btn btn-outline-secondary";
+            button_sub_graph.style = "margin-right: 5px; color: white; font-size: 9pt;";
+            button_sub_graph.onclick = function() {
+                parent.show_modal();
+            };
+
+            div_sub_graph.className = "mat-mdc-tooltip-trigger control-row-button noselect";
+            div_sub_graph.style = "display: inline-flex; margin-top: 5px;";
+
+            var button_unselect = iframeDoc.createElement('button');
+
+            button_unselect.type = "button";
+            button_unselect.className = "btn btn-outline-secondary";
+            button_unselect.style = "color: white; font-size: 9pt;";
+            button_unselect.innerHTML = "Unselect all";
+            button_unselect.onclick = function() {
+                iframeDoc.getElementsByClassName("mat-mdc-tooltip-trigger control-row-button noselect")[2].click();
+            };
+
+            var style_balise = iframeDoc.createElement('style');
+            var bootstrap_style = iframeDoc.createElement('link');
+            bootstrap_style.rel = "stylesheet";
+            bootstrap_style.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css";
+            iframeDoc.head.appendChild(bootstrap_style);
+            style_balise.innerHTML = `
+                .toggle-fullscreen-btn {
+                    background: none;
+                    border: 0;
+                    padding: 0;
+                }
+                .toggle-fullscreen-svg path {
+                    transform-box: view-box;
+                    transform-origin: 12px 12px;
+                    fill: none;
+                    stroke: hsl(225, 10%, 8%);
+                    stroke-width: 4;
+                    transition: .15s;
+                }
+                .toggle-fullscreen-btn:hover path:nth-child(1),
+                .toggle-fullscreen-btn:focus path:nth-child(1) {
+                    transform: translate(-2px, -2px);
+                }
+                .toggle-fullscreen-btn:hover path:nth-child(2),
+                .toggle-fullscreen-btn:focus path:nth-child(2) {
+                    transform: translate(2px, -2px);
+                }
+                .toggle-fullscreen-btn:hover path:nth-child(3),
+                .toggle-fullscreen-btn:focus path:nth-child(3) {
+                    transform: translate(2px, 2px);
+                }
+                .toggle-fullscreen-btn:hover path:nth-child(4),
+                .toggle-fullscreen-btn:focus path:nth-child(4) {
+                    transform: translate(-2px, 2px);
+                }
+                .toggle-fullscreen-btn:not(.on) .icon-fullscreen-leave {
+                    display: none;
+                }
+                .toggle-fullscreen-btn.on .icon-fullscreen-enter {
+                    display: none;
+                }
+                .frame-full path {
+                    stroke: white;
+                }
+            `;
+            iframeDoc.head.appendChild(style_balise);
+            div.style = "position: absolute; top: 12px; right:50px;";
+
+            waitForElm('.help-header').then((elm) => {
+                div.appendChild(button_screen);
+                elm.appendChild(div); 
+            });
+            waitForElm('.control-sections').then((elm) => {
+                // ajoute un style à elm
+                elm.style = elm.style + "margin-top: 5px;";
+                var li_sub_graph = iframeDoc.createElement('li');
+                li_sub_graph.className = "ng-star-inserted";
+                div_sub_graph.appendChild(button_sub_graph);
+                div_sub_graph.appendChild(button_unselect);
+                li_sub_graph.appendChild(div_sub_graph);
+                // add tmp as first child of elm
+                elm.insertBefore(li_sub_graph, elm.firstChild);
+            });
+        };
+    }
+
+    async function example() {
+        document.getElementById('cves').innerText = 'CVE-2024-37079\nCVE-2018-17924';
+        await process();
+        await print_mitre();
+    }
+
+    // Function to display the selected techniques executed by iframe
+    // See L-5642 and from L-9336 in main.js
+    async function mitre_selection(techniques, selection=false, technique_id= null) {
+        var selected = new Set();
+        techniques.forEach(function(element) {
+            var technique = element.split('^')[0];
+            selected.add(technique);
+        });
+        selected_techniques = Array.from(selected);
+        show_selected(selection, technique_id);
+    }
+
+    async function show_selected(selection, technique_id) {
+        var data_link = new Set();
+        var nodes = new Set();
+
+        var option = {
+            tooltip: {
+                    trigger: 'item',
+                    triggerOn: 'mousemove',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    formatter: function(params) {
+                        if (params.dataType === 'node') {
+                            let nodeName = params.data.name;
+                            let nodeValue = params.value || 'N/A';
+                            let incomingNodes = chart_links
+                                .filter(link => link.target === nodeName)
+                                .map(link => link.source)
+                                .join('<br/>- ');
+                            let outgoingNodes = chart_links
+                                .filter(link => link.source === nodeName)
+                                .map(link => link.target)
+                                .join('<br/>- ');
+                            
+                                var ret = `<b>${nodeName} (${nodeValue})</b><hr class="hr-tooltip" />`;
+                            if (incomingNodes) {
+                                ret += `<u>From:</u><br>- ${incomingNodes}<br>`;
+                            }
+                            if (outgoingNodes) {
+                                ret += `<u>To:</u><br>- ${outgoingNodes}`;
+                            }
+                            return ret;
+                        } else {
+                            return `${params.data.source} → ${params.data.target}: ${params.data.value}`;
+                        }
+                    }
+                },
+            annimation: false,
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {
+                        show: true,
+                        title: 'Save as image',
+                        type: 'png',
+                        name: 'CVE2CAPEC - Sub Graph Data Flow',
+                        backgroundColor: '#fff',
+                    },
+                    restore: {
+                        show: true,
+                        title: 'Restore',
+                    },
+                    myFullScreen: {
+                        show: true,
+                        title: 'Plein Écran',
+                        icon: 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACvUlEQVR4nO3dTW7TUBQF4MeP2AJjkAAJKIxYAIvINqL4nHrsFUEpqFL52wRsggmCYgQtIAU94QGqSFLa93xukvNJHuf43Loe+MpOyczMzMzMzMzMbEORnFc+jgA8n81m92qdw+7u7gOSr0ge1z6ftAEDmQ9H3zTNToX8jwCcjHUepfMrBzIH8LJC/ndjnkPp/OqBnEwmkyulsk+n0+tj5vdAVvBALv4XdpgKA/DeV8j5htGTvF96IE3TPCb5zf+yzn7f+Exyn+Td0sP4ayg7JN8A+L7x95C0ZajuQx4gGHkf8gDByPuQBwhG3oc8QDDyPuQBgpH3IQ8QjLwPeYBg5H3IAwQj70MeIBh5H/IAwcj7kAcIRt6HPEAw8j7kAYKR9yEPEIy8D3mAYOR9DA+QFgX4lLYMyQ+L+gDwpXqAvMS2ZCD7acsAeLKkj73qAfJG4fC8+/SP9zW3DaNq2/ZWvhIW9HFzlBD5mXReYiP5Y9gCPKyxkLAu2ra9A+Dt0MdPAK+bpnk4epC8xFZykW3ddV13reu6q+ocZmZmZmZmZmZmZmZmZmZmdkp+oO8lhwB9ALidV11I/sqHbO0lCGkf+YcWLcrVeANcdPI+SB4sWZ18kbYM1X0A+LokQJ+2DNR9yNfvg5H3IQ8QjLwPeYBg5H3IAwQj70MeIBh5H/IAwcj7kAcIRt6HPEAw8j7kAYKR9yEPEIy8D3mAYOR9yAMEI+9DHiAYeR/yAMHI+5AHCEbehzxAMPI+VgUocPQAntZ8T0h+J8vwEp2j2ueTNmAg83zk10DVGMrw7ZB/PQP3QM5QwkHpgQzfLxxlGBt1hfDPcdx13eVS2fPOVH5jjwdygYGklC55IEGuEADPUmHDe778L+scJXzMG4GlB+Kb+v8Poh++0nYjVZK/AJd/Y8ULPdfjpm5mZmZmZmZmqZ7frkDXeF36/ksAAAAASUVORK5CYII=',
+                        onclick: function () {
+                            if (document.fullscreenElement) {
+                                document.exitFullscreen();
+                            } else {
+                                document.getElementById('subgraph').requestFullscreen();
+                            }
+                        }
+                    }
+                }
+            },
+            backgroundColor: '#fff',
+            series: {
+                type: 'sankey',
+                emphasis: {
+                    focus: 'trajectory',
+                },
+                nodeAlign: 'center',
+                nodeWidth: 20,  // Largeur des nœuds pour réduire l'encombrement
+                nodeGap: 5,    // Ajustement de l'espace entre les nœuds
+                layoutIterations: 64, // Nombre d'itérations pour le calcul de la disposition
+                label: {
+                    fontSize: 12, // Taille de police réduite
+                },
+                data: [],
+                links: [],
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.5
+                }
+            }
+        }
+        if (option && typeof option === 'object') {
+            modal_chart.setOption(option);
+        }
+
+        // Get CAPEC and CWE data from Technoques
+        selected_techniques.forEach(technique => {
+            const capecs = new Set();
+            const cwes = new Set();
+
+            chart_links.forEach(element => {
+                if (element.target === technique) {
+                    data_link.add(element);
+                    capecs.add(element.source);
+                }
+            });
+
+            capecs.forEach(capec => {
+                chart_links.forEach(element => {
+                    if (element.target === capec) {
+                        data_link.add(element);
+                        cwes.add(element.source);
+                    }
+                });
+            });
+
+            cwes.forEach(cwe => {
+                chart_links.forEach(element => {
+                    if (element.target === cwe) {
+                        data_link.add(element);
+                    }
+                });
+            });
+        });
+
+        // Get all nodes from links
+        data_link.forEach(link => {
+            nodes.add(link.source);
+            nodes.add(link.target);
+        });
+
+        // If no data found, show a warning 
+        if (nodes.size === 0 || data_link.size === 0) {
+            if (selection && technique_id) {
+                new Notify({
+                    status: 'warning',
+                    title: technique_id,
+                    text: `No data found for ${technique_id}`,
+                    effect: 'fade',
+                    speed: 300,
+                    showIcon: true,
+                    showCloseButton: true,
+                    autoclose: true,
+                    autotimeout: 2000,
+                    type: 'outline',
+                    position: 'right top'
+                });
+            }
+            modal_chart.setOption({
+                series: {
+                    data: [],
+                    links: []
+                }
+            });
+        } else {
+            modal_chart.setOption({
+                series: {
+                    data: Array.from(nodes).map(node => ({ name: node })),
+                    links: Array.from(data_link)
+                }
+            });
+        }
+    }
+
+    async function show_modal() {
+        var modal = new bootstrap.Modal(document.getElementById('modal'));
+        var chart_option = modal_chart.getOption();
+        if (modal_chart.getOption().series[0].data.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No techniques selected',
+                text: 'Please select some techniques first.',
+            });
+            return;
+        }
+        modal.show();
+    }
+
+    async function share() {
+        // copy url to clipboard
+        var url = window.location.href;
+        navigator.clipboard.writeText(url).then(function() {
+            new Notify({
+                status: 'success',
+                title: 'URL copied',
+                text: 'The URL has been copied to the clipboard',
+                effect: 'fade',
+                speed: 300,
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 2000,
+                type: 'outline',
+                position: 'right top'
+            });
+        }, function(err) {
+            console.error('Failed to copy: ', err);
+            new Notify({
+                status: 'error',
+                title: 'Failed to copy URL',
+                text: 'An error occurred while copying the URL',
+                effect: 'fade',
+                speed: 300,
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 2000,
+                type: 'outline',
+                position: 'right top'
+            });
+        });
+    }
+
+    async function fullscreen() {
+        // check if fullscreen mode is available
+        if (document.fullscreenEnabled || 
+            document.webkitFullscreenEnabled || 
+            document.mozFullScreenEnabled ||
+            document.msFullscreenEnabled) {
+            
+            // which element will be fullscreen
+            var iframe = document.querySelector('#frame iframe');
+            // Do fullscreen
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+        else {
+            document.querySelector('.error').innerHTML = 'Your browser is not supported';
+        }
+    }
+
+</script>
+
+</html>

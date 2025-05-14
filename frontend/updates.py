@@ -1,7 +1,10 @@
+import os
+import json
+
 from PyQt6.QtWidgets import QListWidget, QMessageBox, QTableWidgetItem
 from backend.loader import load_mitre_data, load_keyword_ioc_mapping
 from backend.processor import get_apt_groups, get_apt_report
-
+from frontend.keywords import save_keyword_ioc_mapping
 def update_listbox(use_enterprise, use_mobile, use_ics, apt_listbox, search_var):
     global apt_groups
     selected_datasets = {
@@ -21,10 +24,21 @@ def update_listbox(use_enterprise, use_mobile, use_ics, apt_listbox, search_var)
             apt_listbox.addItem(apt)
 
 def refresh_data(apt_listbox, tactic_listbox, TACTIC_MAPPING, include_description, include_detections, use_enterprise, use_mobile, use_ics, tree):
-    global KEYWORD_IOC_MAPPING
-    
+    global KEYWORD_IOC_MAPPING  #  Ensure global mapping is updated
+    print(f"DEBUG: apt_listbox - {apt_listbox}")
+    print(f"DEBUG: tactic_listbox - {tactic_listbox}")
+    print(f"DEBUG: TACTIC_MAPPING - {TACTIC_MAPPING}")
+    print(f"DEBUG: include_description - {include_description}")
+    print(f"DEBUG: include_detections - {include_detections}")
+    print(f"DEBUG: use_enterprise - {use_enterprise}")
+    print(f"DEBUG: use_mobile - {use_mobile}")
+    print(f"DEBUG: use_ics - {use_ics}")
+    print(f"DEBUG: tree - {tree}")
+
+    save_keyword_ioc_mapping()
+
     KEYWORD_IOC_MAPPING = load_keyword_ioc_mapping()
-    
+
     selected_apts = [apt_listbox.item(i).text() for i in range(apt_listbox.count()) if apt_listbox.item(i).isSelected()]
     selected_display_tactics = [tactic_listbox.item(i).text() for i in range(tactic_listbox.count()) if tactic_listbox.item(i).isSelected()]
     
@@ -57,12 +71,14 @@ def refresh_data(apt_listbox, tactic_listbox, TACTIC_MAPPING, include_descriptio
     if not output_data:
         QMessageBox.critical(None, "Error", "No data retrieved. Check the JSON file or tactic mappings.")
         return
-    
+
     tree.setRowCount(0)
+
     for data in output_data:
         row_position = tree.rowCount()
         tree.insertRow(row_position)
+
         for col, value in enumerate(data):
             tree.setItem(row_position, col, QTableWidgetItem(str(value)))
-    
-    QMessageBox.information(None, "Success", "Mappings refreshed! The report has been updated.")
+
+    QMessageBox.information(None, "Success", "Mappings and report refreshed successfully!")
