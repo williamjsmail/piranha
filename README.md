@@ -2,7 +2,7 @@
 # Piranha
 
 ## Overview
-Piranha is a cyber threat intelligence and hunt plan development platform that bridges the fap between intelligence requirements and actionable detection strategies. It connects APTs, MITRE ATT&CK techniques, CVEs, Nessus scans, and CTI reports into a unified platform that empowers analysts of all skill levels to:
+Piranha is a cyber threat intelligence and hunt plan development platform that bridges the gap between intelligence requirements and actionable detection strategies. It connects APTs, MITRE ATT&CK techniques, CVEs, Nessus scans, and CTI reports into a unified platform that empowers analysts of all skill levels to:
  
  - Build an Analytic Scheme of Maneuver (ASOM) in minutes
  - Enirch data with AI
