@@ -21,7 +21,7 @@ A user has the ability to import a few different files:
 
 ### Setup
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python piranha.py
 ```
 
