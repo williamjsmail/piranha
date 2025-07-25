@@ -1,0 +1,2039 @@
+{
+    "LOWBALL": {
+        "ioc": [
+            "Communication with Dropbox API to request files",
+            "HTTPS communication to external C2 server",
+            "Host reconnaissance via system information commands",
+            "Communication with Dropbox cloud storage for C2"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)",
+            "Web Proxy, Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto)",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, Linux/Unix/macOS syslogs, HBSS"
+        ]
+    },
+    "phish": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "spear phish": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "spear phishing": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "spearphish": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "vpn": {
+        "ioc": [
+            "Usage of VPN services for anonymizing traffic"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto), Active Directory Logs"
+        ]
+    },
+    "7zip": {
+        "ioc": [
+            "Data archiving"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS, Antivirus"
+        ]
+    },
+    "7-zip": {
+        "ioc": [
+            "Data archiving"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS, Antivirus"
+        ]
+    },
+    "sql.net4.exe": {
+        "ioc": [
+            "SQL database querying for data extraction"
+        ],
+        "tools": [
+            "Database Logs (MSSQL, Oracle, MySQL), Windows Event Logs"
+        ]
+    },
+    "brute forcing": {
+        "ioc": [
+            "Rapid high volume of logs"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "brute-force": {
+        "ioc": [
+            "Rapid high volume of logs"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "brute force": {
+        "ioc": [
+            "Rapid high volume of logs"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "smb": {
+        "ioc": [
+            "Malicious or suspicious use of SMB protocol"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs"
+        ]
+    },
+    "password spraying": {
+        "ioc": [
+            "High authentication velocity"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "webshell": {
+        "ioc": [
+            "Strange URI requests containing commands"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "webshells": {
+        "ioc": [
+            "Strange URI requests containing commands"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "web shell": {
+        "ioc": [
+            "Strange URI requests containing commands"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "web shells": {
+        "ioc": [
+            "Strange URI requests containing commands"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "ASPXSpy": {
+        "ioc": [
+            "ASPXSpy web shells"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "IPsec Helper": {
+        "ioc": [
+            "Exfiltration of specific files through C2",
+            "Deletion of various service traces related to execution",
+            "Arbitrary cmd.exe commands",
+            "Deletion of specific registry keys related to use",
+            "Arbitrary Visual Basic scripts",
+            "Self deletion",
+            "Arbitrary registry modification to HKCU and HKLM Run keys",
+            "External XML configuration file written to containing C2 servers",
+            "Process identification and migration",
+            "Additional payload downloads from C2",
+            "Connects to C2 servers via HTTP POST requests",
+            "Arbitrary Powershell commands ran",
+            "Identification of specific files and folders for exfiltration"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon)",
+            "Windows Event Logs, SysInternals, HBSS",
+            "Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort)",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Web Proxy"
+        ]
+    },
+    "base64": {
+        "ioc": [
+            "Arbitrary base64 data"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "putty": {
+        "ioc": [
+            "Malicious or suspicious use of putty.exe"
+        ],
+        "tools": [
+            "Remote Access Logs (Telnet, SSH, RDP, VNC), Windows Event Logs, HBSS"
+        ]
+    },
+    "winscp": {
+        "ioc": [
+            "Malicious or suspicious use of winscp.exe"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS"
+        ]
+    },
+    "CVE-2018-13379": {
+        "ioc": [
+            "Path traversal attempts in Fortinet FortiOS"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Web Server Logs"
+        ]
+    },
+    "sql injection": {
+        "ioc": [
+            "Unsanitized SQL queries in SQL logs with statements like UNION, --, 1=1, ORDER BY, etc.",
+            "Unsanitized SQL queries in logs"
+        ],
+        "tools": [
+            "Database Logs (MSSQL, Oracle, MySQL), Web Server Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "disable security tools": {
+        "ioc": [
+            "Unauthorized attempts of disabling tools in logs"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "GMER64.sys": {
+        "ioc": [
+            "Unexpected actions from GMER64.sys"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "ufile.io": {
+        "ioc": [
+            "Malicious file download from ufile.io or easyupload.io"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "plink": {
+        "ioc": [
+            "Tunneling and connections from systems.exe"
+        ],
+        "tools": [
+            "Remote Access Logs (Telnet, SSH, RDP, VNC), Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "WinEggDrop": {
+        "ioc": [
+            "In depth network system interrogations"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "mimikatz": {
+        "ioc": [
+            "Command line includes misc::memssp",
+            "Malicious or suspicious use of syssvc.exe",
+            "Acquiring credentials from Windows Credential Manager",
+            "\\sect pipe usage",
+            "SMB network drive writes to Temp folder",
+            "Modification of *.kirbi files",
+            "Command line includes sekurl::",
+            "Command line includes lsadump::"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS"
+        ]
+    },
+    "dumped the SAM file": {
+        "ioc": [
+            "Saving HKLM\\SYSTEM and HKLM\\SAM via reg.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "rdp": {
+        "ioc": [
+            "Malicious or suspicious use of RDP protocol",
+            "EventID 21 from TerminalService-LocalSessionManager Operational log"
+        ],
+        "tools": [
+            "Remote Access Logs (Telnet, SSH, RDP, VNC), Firewall (ASA, Palo Alto), Windows Event Logs",
+            "Windows Event Logs, Remote Access Logs (Telnet, SSH, RDP, VNC)"
+        ]
+    },
+    "nbtscan": {
+        "ioc": [
+            "Network scanning via NetBios protocol"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "FireMalv": {
+        "ioc": [
+            "Modification of \\LocalCache\\Roaming\\Mozilla\\Firefox\\Profiles\\"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "deletes administrator accounts": {
+        "ioc": [
+            "Windows EventID 4726 and 4743"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Remote Access Logs (Telnet, SSH, RDP, VNC)"
+        ]
+    },
+    "WinRAR": {
+        "ioc": [
+            "Data archiving"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS, Antivirus"
+        ]
+    },
+    "Nltest": {
+        "ioc": [
+            "Malicious or suspicious use of nltest.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, Active Directory Logs, HBSS"
+        ]
+    },
+    "AdFind": {
+        "ioc": [
+            "Suspicious data querying to DC about AD Trusts",
+            "Malicious or suspicious use of AdFind.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, Active Directory Logs, HBSS"
+        ]
+    },
+    "Rclone": {
+        "ioc": [
+            "Communication with external cloud storage provider"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "exfiltrating files": {
+        "ioc": [
+            "High volume of network traffic to external destination"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Web Proxy"
+        ]
+    },
+    "MASSCAN": {
+        "ioc": [
+            "High volume of TCP/UDP network scanning traffic"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "watering hole": {
+        "ioc": [
+            "Malware downloaded from nonmalicious legitimate website"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "hidden malicious executables within PNG files": {
+        "ioc": [
+            "Malicious or suspicious execution out of image file"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "tasklist": {
+        "ioc": [
+            "Host reconnaissance via tasklist.exe",
+            "Suspicious use of tasklist.exe for host reconnaissance"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "netstat": {
+        "ioc": [
+            "Host reconnaissance via netstat.exe",
+            "Suspicious use of netstat.exe for host reconnaissance"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "macro": {
+        "ioc": [
+            "Suspicious traffic originating from Office document"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Windows Event Logs"
+        ]
+    },
+    "Mongall": {
+        "ioc": [
+            "HTTP for C2 communication",
+            "Autostart persistence using the value EverNoteTrayUService",
+            "Suspicious base64 encoded traffic",
+            "Suspicious RC4 encrypted traffic"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Vuln Scanner (ACAS), FireEye HX, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "Heyoka Backdoor": {
+        "ioc": [
+            "Malicious execution of srvdll.dll",
+            "Embedded data in DNS subdomain or data fields"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)"
+        ]
+    },
+    "CVE-2012-0158": {
+        "ioc": [
+            "System state corruption triggered via website, office document, or .rtf file"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus"
+        ]
+    },
+    "CVE-2010-3333": {
+        "ioc": [
+            "Execution arbitrary code via crafted RTF data, aka RTF Stack Buffer Overflow Vulnerability"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus"
+        ]
+    },
+    "fake icons": {
+        "ioc": [
+            "Execution of .ico files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "removable device": {
+        "ioc": [
+            "Modification of registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "usb": {
+        "ioc": [
+            "Modification of registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "port 4050": {
+        "ioc": [
+            "Malicious port 4050 for C2 communication"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "Imminent Monitor": {
+        "ioc": [
+            "Copies itself to %TEMP% directory",
+            "Encrypted spearphishing attachments"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy",
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "RAR": {
+        "ioc": [
+            "Data archiving"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS, Antivirus"
+        ]
+    },
+    "MAPIGET": {
+        "ioc": [
+            "Malicious or suspicious communication to Exchange servers"
+        ],
+        "tools": [
+            "Email Logs (SMTP, IMAP, MAPI, POP), Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "AcroRD32.exe": {
+        "ioc": [
+            "Malicious or suspicious use of AcroRD32.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "pass the hash": {
+        "ioc": [
+            "Windows EventID 4648",
+            "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\\RequireSecuritySignature set to 0",
+            "Logon Type 3 (network logon) with the Authentication Package set to NTLM"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "pass-the-hash": {
+        "ioc": [
+            "Windows EventID 4648",
+            "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\\RequireSecuritySignature set to 0",
+            "Logon Type 3 (network logon) with the Authentication Package set to NTLM"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "CVE-2009-3129": {
+        "ioc": [
+            "Spreadsheet with FEATHEADER record containing invalid cbHdrData size element"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus"
+        ]
+    },
+    "CVE-2011-0611": {
+        "ioc": [
+            "Creation of scvhost.exe and AAAA files in the %temp% directory"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "http": {
+        "ioc": [
+            "Malicious or suspicious use of HTTP protocol"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "dns": {
+        "ioc": [
+            "Malicious or suspicious use of DNS protocol"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)"
+        ]
+    },
+    "CurrentVersion": {
+        "ioc": [
+            "Persistence via HKCU or HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\* key"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "cmd.exe": {
+        "ioc": [
+            "Malicious or suspicious use of cmd.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "cmd": {
+        "ioc": [
+            "Malicious or suspicious use of cmd.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "legitimate credentials": {
+        "ioc": [
+            "Suspicious logon logs from valid accounts"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "scriplet": {
+        "ioc": [
+            "Malicious or suspicious use of .sct files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    ".sct": {
+        "ioc": [
+            "Malicious or suspicious use of .sct files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "PowerShell": {
+        "ioc": [
+            "Malicious or suspicious use of PowerShell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Power Shell": {
+        "ioc": [
+            "Malicious or suspicious use of PowerShell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "port 22": {
+        "ioc": [
+            "Malicious use of port 22 or SSH protocol"
+        ],
+        "tools": [
+            "Remote Access Logs (Telnet, SSH, RDP, VNC), Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "ssh": {
+        "ioc": [
+            "Malicious or suspicious use of SSH protocol"
+        ],
+        "tools": [
+            "Remote Access Logs (Telnet, SSH, RDP, VNC), Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "XOR": {
+        "ioc": [
+            "Use of XOR encoding algorithm"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Empire": {
+        "ioc": [
+            "https://attack.mitre.org/software/S0363/"
+        ],
+        "tools": [
+            "Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort), HBSS"
+        ]
+    },
+    "Regsvr32": {
+        "ioc": [
+            "Malicious or suspicious use of Regsvr32.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "rundll32": {
+        "ioc": [
+            "Malicious or suspicious use of rundll32.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "CVE-2015-1701": {
+        "ioc": [
+            "Arbitrary commands ran in kernel mode",
+            "HTML/JS launcher exploits Flash vulnerability CVE-2015-3043",
+            "System token stolen and copied into running process",
+            "Embeds FLV object directly in ActionScript code"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus"
+        ]
+    },
+    "https": {
+        "ioc": [
+            "Malicious or suspicious use of HTTPS protocol",
+            "Use of suspicious or known malicious SSL/TLS certificates"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "CHOPSTICK": {
+        "ioc": [
+            "Possible malicious communication over HTTP, SMTP, or POP3"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Email Logs (SMTP, IMAP, MAPI, POP)"
+        ]
+    },
+    "startup directory": {
+        "ioc": [
+            "Modification of %ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp or %APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "startup folder": {
+        "ioc": [
+            "Modification of %ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp or %APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "UserInitMprLogonScript": {
+        "ioc": [
+            "Modification of registry key HKCU\\Environment\\UserInitMprLogonScript"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "password-spray": {
+        "ioc": [
+            "High authentication velocity"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "SharePoint": {
+        "ioc": [
+            "Microsoft audit log reports"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs"
+        ]
+    },
+    "Forfiles": {
+        "ioc": [
+            "Malicious or suspicious use of forfiles.exe",
+            "Indirect execution of cmd.exe by using -c switch"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "shared drives": {
+        "ioc": [
+            "Windows EventID 5140: A network share object was accessed",
+            "Windows EventID 5143: A network share object was modified",
+            "Windows EventID 5142: A network share object was added",
+            "Windows EventID 5144: A network share object was deleted"
+        ],
+        "tools": [
+            "Windows Event Logs, File Access Logs (FTP, NFS, SMB)"
+        ]
+    },
+    "pi.log": {
+        "ioc": [
+            "Creation, modification, or deletion of pi.log"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "certutil": {
+        "ioc": [
+            "Malicious or suspicious use of certutil.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Delphi": {
+        "ioc": [
+            "Execution of Windows API CreateProcess function with cmd.exe /c SYSTEMINFO & TASKLIST as IpCommandLine argument",
+            "Hidden directories created in %APPDATA%",
+            "Modification of HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "MMDeviceEnumerator": {
+        "ioc": [
+            "Modification of mmdeviceapi.h"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "COM hijacking": {
+        "ioc": [
+            "Modification of registry key HKEY_USERS\\*\\ScriptletURL*",
+            "Modification of registry key HKEY_USERS\\*\\DelegateExecute",
+            "Modification of registry key HKEY_USERS\\*\\InprocServer32\\",
+            "Modification of registry key HKEY_USERS\\*\\TreatAs\\",
+            "Modification of registry key HKEY_USERS\\*\\LocalServer32\\"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Google Drive": {
+        "ioc": [
+            "Communications with external Google Drive location"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "CVE 2020-0688": {
+        "ioc": [
+            "CVE 2020-0688 Payload runs as a child process to w3wp.exe",
+            "CVE 2020-0688 __VIEWSTATE variable in GET request",
+            "CVE 2020-0688 Large __VIEWSTATE variable with serialized data",
+            "CVE 2020-0688 Sysmon EventID 4: Sysmon server state changed"
+        ],
+        "tools": [
+            "Web Server Logs, Windows Event Logs, HBSS",
+            "Windows Event Logs, HBSS, FireEye HX",
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "CVE 2020-17144": {
+        "ioc": [
+            "CVE 2020-17144 Exploitation of CreateUserConfiguration function",
+            "CVE 2020-17144 Embedded malicious data in SOAP messages"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "Tor": {
+        "ioc": [
+            "Malicious or suspicious use of Tor protocol"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "WindowStyle": {
+        "ioc": [
+            "Malicious or suspicious use of -windowstyle hidden command line option in Powershell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "cleared event": {
+        "ioc": [
+            "Windows EventID 1102",
+            "Windows EventID 1100",
+            "Commandline wevtutil cl System or commandline wevtutil cl Security"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "timestomp": {
+        "ioc": [
+            "Mismatched $SI vs $FN variables",
+            "BASIC_INFO_CHANGE+CLOSE codes in UsnJrnl file",
+            "Mismatched MFT ID vs timestamp",
+            "Sysmon EventID 2: A process changed a file creation time"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "timestamp": {
+        "ioc": [
+            "Mismatched $SI vs $FN variables",
+            "BASIC_INFO_CHANGE+CLOSE codes in UsnJrnl file",
+            "Mismatched MFT ID vs timestamp",
+            "Sysmon EventID 2: A process changed a file creation time"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "time stamp": {
+        "ioc": [
+            "Mismatched $SI vs $FN variables",
+            "BASIC_INFO_CHANGE+CLOSE codes in UsnJrnl file",
+            "Mismatched MFT ID vs timestamp",
+            "Sysmon EventID 2: A process changed a file creation time"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "JHUHUGIT": {
+        "ioc": [
+            "Execution of .dll from a .bat",
+            "Modification of registry Run keys",
+            "Registration of Windows shell script in HKCU\\Environment\\UserInitMprLogonScript"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Koadic": {
+        "ioc": [
+            "Powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden",
+            "Malicious use of Regsvr32.exe and Rundll32.exe",
+            "Persistence held in HKCU Run key",
+            "UAC bypass via eventvwr.exe and sdclt.exe",
+            "Modification of registry Run keys",
+            "Malicious use of PowerShell",
+            "Saving HKLM\\SYSTEM and HKLM\\SAM via reg.exe",
+            "Communication over HTTP",
+            "Malicious use of ntdsutil.exe",
+            "Integrity elevation through the malicious use of eventvwr.exe and sdclt.exe",
+            "Malicious use of WMIC"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "ntdsutil": {
+        "ioc": [
+            "Malicious or suspicious use of ntdsutil.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, Active Directory Logs, HBSS"
+        ]
+    },
+    "Downdelph": {
+        "ioc": [
+            "Search order hijacking of sysprep.exe",
+            "Custom RedirectEXE shim database"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "LoJax": {
+        "ioc": [
+            "Modification of registry key: HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\BootExecute\\autocheck autochk -> autocheck autoche"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "HAMMERTOSS": {
+        "ioc": [
+            "Commands pulled via hardcoded HTTPS server",
+            "Encrypted commands appended to image files",
+            "Network traffic to GitHub for the day's decryption key",
+            "Network traffic to Twitter for the day's decryption key"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "Registry Run": {
+        "ioc": [
+            "Persistence via HKCU or HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run key"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "CozyCar": {
+        "ioc": [
+            "Communication over HTTP or HTTPS",
+            "Communication with Twitter as a backup C2",
+            "Persistence in HKLM or HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\, HKLM or HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Sibot": {
+        "ioc": [
+            "Malicious or suspicious use of rundll32.exe",
+            "Modification of the C:\\windows\\system32\\drivers\\ by adding a .sys file",
+            "Command execution via VBScript",
+            "Malicious or suspicious use of Win32_Process class to execute DLL",
+            "Modification of registry key: HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\sibot",
+            "Communication over HTTP"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "code repositories": {
+        "ioc": [
+            "Communication over HTTP or HTTPS to GitHub, GitLab, etc."
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "Raindrop": {
+        "ioc": [
+            "Use of encrypted Cobalt Strike payload"
+        ],
+        "tools": [
+            "Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort), HBSS"
+        ]
+    },
+    "SUNBURST": {
+        "ioc": [
+            "Communication over HTTP GET and HTTP POST requests",
+            "Removal of HTTP proxy registry values from HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\",
+            "HKLM\\SYSTEM\\CurrentControlSet\\services\\service_name\\Start key set to value 4",
+            "Communication over DNS traffic designed to mimic SolarWinds API communications",
+            "Use of Base64 in C2 traffic",
+            "Enumeration of HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography\\MachineGuid registry key"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX",
+            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)"
+        ]
+    },
+    "FatDuke": {
+        "ioc": [
+            "Creation of malicious named pipe using CreateNamedPipe function",
+            "Network communications using Named Pipe I/O functionality",
+            "Communication over HTTP",
+            "Modification of registry key HKLM\\SOFTWARE\\Microsoft\\CurrentVersion\\Run"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Twitter": {
+        "ioc": [
+            "Communication with Twitter accounts"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "wmi event": {
+        "ioc": [
+            "Malicious use of __EventFilter, EventConsumer, and __FilterToConsumerBinding WMI classes"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "CVE-2019-19781": {
+        "ioc": [
+            "Malicious traffic to URIs */../vpns/*, */vpns/cfg/smb.conf, */vpns/portal/scripts/newbm.pl*, */vpns/portal/scripts/rmbm.pl*, */vpns/portal/scripts/picktheme.pl*"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "CVE-2019-11510": {
+        "ioc": [
+            "Exploitation of URI dana/html5acc/ to perform directory traversal"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "CVE-2021-36934": {
+        "ioc": [
+            "Copying of \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\Windows\\System32\\config\\SYSTEM",
+            "Reading and exporting Volume Shadow Copy of SAM and SYSTEM",
+            "Copying of \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\Windows\\System32\\config\\SAM"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Get-": {
+        "ioc": [
+            "Malicious or suspicious use of PowerShell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "AUDITPOL": {
+        "ioc": [
+            "Malicious or suspicious use of auditpol.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Remove-": {
+        "ioc": [
+            "Malicious or suspicious use of PowerShell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "TEARDROP": {
+        "ioc": [
+            "Modification of c:\\windows\\syswow64",
+            "Modification of registry key HKU\\SOFTWARE\\Microsoft\\CTF"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "steganography": {
+        "ioc": [
+            "Execution out of a nonstandard file"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "cobalt strike": {
+        "ioc": [
+            "https://redcanary.com/threat-detection-report/threats/cobalt-strike/"
+        ],
+        "tools": [
+            "Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort), HBSS"
+        ]
+    },
+    "reg save": {
+        "ioc": [
+            "Modification of registry keys"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "scheduled task": {
+        "ioc": [
+            "Modification of HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Task"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "scheduled tasks": {
+        "ioc": [
+            "Modification of HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Task"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Chrome browser": {
+        "ioc": [
+            "Malicious modification of the %LOCALAPPDATA%\\Google\\Chrome\\User Data\\ folder"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "mshta": {
+        "ioc": [
+            "Malicious or suspicious use of mshta.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "GoldFinder": {
+        "ioc": [
+            "Communications over HTTP"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "created accounts": {
+        "ioc": [
+            "Windows EventID 4720: A user account was created"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs"
+        ]
+    },
+    "create or enable accounts": {
+        "ioc": [
+            "Windows EventID 4720: A user account was created"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs"
+        ]
+    },
+    "service for persistence": {
+        "ioc": [
+            "Malicious use of sc.exe",
+            "Windows EventID 7045 and Windows EventID 4697"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "services for persistence": {
+        "ioc": [
+            "Malicious use of sc.exe",
+            "Windows EventID 7045 and Windows EventID 4697"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "SOCKS5": {
+        "ioc": [
+            "SOCKS5 proxied traffic"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "schtasks": {
+        "ioc": [
+            "Malicious or suspicious use of schtasks.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Invoke-Obfuscation": {
+        "ioc": [
+            "Malicious use of PowerShell"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "pass the ticket": {
+        "ioc": [
+            "Windows EventID 4648",
+            "Logon Type 3 (network logon) with the Authentication Package set to NTLM"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "Dropbox": {
+        "ioc": [
+            "Communication with external Dropbox URL"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "Python": {
+        "ioc": [
+            "Malicious or suspicious use of Python"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "ROKRAT": {
+        "ioc": [
+            "Modification of HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\ for VBOM bypass",
+            "Communications over HTTP and HTTPS",
+            "Enumeration of machine via querying HKLM\\System\\CurrentControlSet\\Services\\mssmbios\\Data\\SMBiosData registry key"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Task Scheduler": {
+        "ioc": [
+            "Modification of C:\\Windows\\System32\\Tasks\\"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "LoadAppInit_DLLs": {
+        "ioc": [
+            "Addition of LoadAppInit_DLLs in SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "cron": {
+        "ioc": [
+            "Modification of cron files"
+        ],
+        "tools": [
+            "Linux/Unix/macOS syslogs, Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Brightmetricagent": {
+        "ioc": [
+            "Presence of Brightmetricagent.exe executing out of %TEMP% directories"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "VersaMem": {
+        "ioc": [
+            "Exploitation of CVE-2024-39717",
+            "Attachment to Apache Tomcat Java servlet"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "vssadmin": {
+        "ioc": [
+            "Malicious or suspicious use of vssadmin.exe, specifically to create shadow copies"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "deleted systeminfo.dat": {
+        "ioc": [
+            "EventID 4660: An object was deleted",
+            "EventID: 4656: A handle to an object was requested"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS"
+        ]
+    },
+    "rult3uil.log": {
+        "ioc": [
+            "Creation of rult3uil.log"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "UPX": {
+        "ioc": [
+            "Presence of suspicious UPX packed files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "FRP": {
+        "ioc": [
+            "Presence of frpc.exe, frps.exe, or frpc.ini"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Fast Reverse Proxy": {
+        "ioc": [
+            "Presence of frpc.exe, frps.exe, or frpc.ini"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "WMIC": {
+        "ioc": [
+            "Malicious or suspicious use of wmic.exe or wmiprvse.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "bitsadmin": {
+        "ioc": [
+            "File transfers using BITS protocol over HTTP, HTTPS, or SMB"
+        ],
+        "tools": [
+            "IDS (Sourcefire), IDS (Bro/Zeek, Suricata, Snort), Netflow (IPFIX, Silk, Gigamon), Firewall (ASA, Palo Alto), FireEye HX, Web Proxy, Windows Event Logs, HBSS"
+        ]
+    },
+    "Outlook Web Access": {
+        "ioc": [
+            "Unauthorized access to OWA"
+        ],
+        "tools": [
+            "Email Logs (SMTP, IMAP, MAPI, POP), Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "BADPOTATO": {
+        "ioc": [
+            "Exploitation of named pipes"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "added user accounts": {
+        "ioc": [
+            "Addition of user accounts to system or groups"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs"
+        ]
+    },
+    "Cloudflare": {
+        "ioc": [
+            "Communication with external Cloudflare servers"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "wget": {
+        "ioc": [
+            "Miscellaneous web requests to IPs or domains",
+            "Default User Agent string Wget/VERSION"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "ftp": {
+        "ioc": [
+            "Malicious or suspicious use of FTP protocol to download files"
+        ],
+        "tools": [
+            "File Access Logs (FTP, NFS, SMB), Web Proxy, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "makecab": {
+        "ioc": [
+            "Malicious or suspicious use of makecab.exe to download files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "startup": {
+        "ioc": [
+            "Modification of startup files or folders"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "shell script": {
+        "ioc": [
+            "Malicious script for execution or persistence"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Linux/Unix/macOS syslogs"
+        ]
+    },
+    "Google Workspace": {
+        "ioc": [
+            "Communication with external Google Workspace accounts"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "created user": {
+        "ioc": [
+            "Addition of user on system"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs"
+        ]
+    },
+    "malicious binaries": {
+        "ioc": [
+            "Presence of suspicious binaries on system"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS, Antivirus"
+        ]
+    },
+    "PowerSploit": {
+        "ioc": [
+            "Malicious use of PowerShell",
+            "Persistence via the HKCU Run key",
+            "Persistence via SSP DLL",
+            "Malicious use of WMIC"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "WMI": {
+        "ioc": [
+            "Malicious use of Windows Management Instrumentation"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "WMIEXEC": {
+        "ioc": [
+            "Malicious use of Windows Management Instrumentation"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "DEADEYE": {
+        "ioc": [
+            "Scheduled tasks: \\Microsoft\\Windows\\PLA\\Server Manager Performance Monitor, \\Microsoft\\Windows\\Ras\\ManagerMobility, \\Microsoft\\Windows\\WDI\\SrvSetupResults, \\Microsoft\\Windows\\WDI\\USOShared"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Log4j": {
+        "ioc": [
+            "JNDI payload in Apache access logs, with the default path being /var/log/*/access.log"
+        ],
+        "tools": [
+            "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "njRAT": {
+        "ioc": [
+            "Persistence in HKCU\\Software\\Microsoft\\CurrentVersion\\Run\\ and %STARTUP%",
+            "Communication over HTTP/S"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "LSASS": {
+        "ioc": [
+            "Access to protected LSASS memory space"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "DarkComet": {
+        "ioc": [
+            "Modification to registry: HKEY_CURRENT_USER\\Software\\DC3_FEXEC",
+            "Communication over HTTP/S",
+            "Modification to registry: HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System Enable LUA=\"0\"",
+            "Persistence in %STARTUP% folder and registry Run keys"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "LaZagne": {
+        "ioc": [
+            "Ability to dump and gather credentials from databases, mail, Wi-Fi, keychains, web browsers, LSA secrets, MSCache, and Windows Vault files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Sticky Keys": {
+        "ioc": [
+            "Replacement of sethc.exe with cmd.exe, which is then launched as administrator upon triggering sticky keys"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Sticky-Keys": {
+        "ioc": [
+            "Replacement of sethc.exe with cmd.exe, which is then launched as administrator upon triggering sticky keys"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Eternal": {
+        "ioc": [
+            "Exploitation of SMBv1 heap spraying bug",
+            "Integer overflow caused by memory allocation miscalculation",
+            "Buffer overflow caused by error validation between use of SMB_COM_NT_TRANSACT and SMB_COM_TRANSACTION2 subcommands packet sizes"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)"
+        ]
+    },
+    "PsExec": {
+        "ioc": [
+            "Commonly used for Pass the Hash techniques"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "JuicyPotato": {
+        "ioc": [
+            "Abuse of SeImpersonate privilege"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "XMRIG": {
+        "ioc": [
+            "CPU/GPU Mining",
+            "Heavy system resource usage"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "mof file": {
+        "ioc": [
+            "Compilation and insertion of new classes into WMI database with either remote or local MOF files"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Registry Run key": {
+        "ioc": [
+            "Modification of Persistence via HKCU or HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run key"
+        ],
+        "tools": [
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "Kerberos": {
+        "ioc": [
+            "Exploitation of Kerberos authentication method"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "svchost": {
+        "ioc": [
+            "Malicious or suspicious use of svchost.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "BloodHound": {
+        "ioc": [
+            "Presence or use of SharpHound on system"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "WinRM": {
+        "ioc": [
+            "Malicious use of PowerShell",
+            "Malicious use of WSMan protocol",
+            "Malicious or suspicious use of wsmprovhost.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Meterpreter": {
+        "ioc": [
+            "Malicious use of rsaenh.dll, netapi32.dll, wkscli.dll, psapi.dll, cscapi.dll"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "SMBexec": {
+        "ioc": [
+            "Execution of random service from RStartService that redirects command into randomly named .bat file",
+            "Malicious use of SMB protocol",
+            "Service with random 8 character ASCII-only name created with RCreateService with service user of NT AUTHORITY\\SYSTEM",
+            "Execution and subsequent deletion of .bat file"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs"
+        ]
+    },
+    "cmstp": {
+        "ioc": [
+            "Malicious or suspicious use of cmstp.exe",
+            "Installation or removal of Connection Manager service profile"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "SMTP": {
+        "ioc": [
+            "Malicious or suspicious use of SMTP/S protocol"
+        ],
+        "tools": [
+            "Email Logs (SMTP, IMAP, MAPI, POP), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "IMAP": {
+        "ioc": [
+            "Malicious or suspicious use of IMAP"
+        ],
+        "tools": [
+            "Email Logs (SMTP, IMAP, MAPI, POP), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "Impacket": {
+        "ioc": [
+            "https://github.com/fortra/impacket"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "CrackMapExec": {
+        "ioc": [
+            "Used for password spraying, credential enumeration, SMB enumeration, and brute force attacks"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "%AppData%": {
+        "ioc": [
+            "Modification of %AppData% folder, test"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "ZeroLogon": {
+        "ioc": [
+            "Exploitation of Spool service (printer bug) + NTLM Relay",
+            "DC password reset with original password reestablished"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "ProcDump": {
+        "ioc": [
+            "LSASS memory dumping using -mm or -ma flags on command line"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Sysinternals": {
+        "ioc": [
+            "If a Sysinternals tool is run for the first time, -accepteula will most likely be present on the command line"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "DCSync": {
+        "ioc": [
+            "Network Logon type (3) generated on DC, along with correlation between Windows EventIDs 4662 and 4624"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "xp_cmdshell": {
+        "ioc": [
+            "xp_cmdshell function present in SQL logs"
+        ],
+        "tools": [
+            "Database Logs (MSSQL, Oracle, MySQL), Windows Event Logs"
+        ]
+    },
+    "Kerberoast": {
+        "ioc": [
+            "Excessive Windows EventID 4769 correlated with Ticket Options: 0x40810000 & Ticket Encryption: 0x17"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, HBSS"
+        ]
+    },
+    "shadow cop": {
+        "ioc": [
+            "Malicious use of vssadmin.exe or wmic.exe to create Volume Shadow Copies"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Telegram": {
+        "ioc": [
+            "Communication with external Telegram server"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "process hollow": {
+        "ioc": [
+            "NtUnmapViewOfSection or ZwUnmapViewOfSection executed against suspended process allocated memory space followed by immediate VirtualAllocEx call on the same memory space",
+            "Process created in CREATE_SUSPENDED state"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "right-to-left": {
+        "ioc": [
+            "\\u202E or U+202E present in naming or scripts that reverse text following the right-to-left override"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "responder": {
+        "ioc": [
+            "Resolution of WPAD server by an instance of Responder.py through an NBT-NS query to a multicast address",
+            "Resolution of WPAD server by an instance of Responder.py through an LLMNR query to a multicast address",
+            "Resolution of a randomized 16-character name by an instance of Responder.py through an LLMNR or NBT-NS query to a multicast address"
+        ],
+        "tools": [
+            "Netflow (SiLK, IPFIX, Gigamon), IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "Amazon S3": {
+        "ioc": [
+            "Communication with unknown Amazon S3 buckets"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "LDAP": {
+        "ioc": [
+            "Malicious or suspicious use of LDAP protocol"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "csvde": {
+        "ioc": [
+            "Malicious or suspicious use of csvde.exe"
+        ],
+        "tools": [
+            "Active Directory Logs, Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "msiexec": {
+        "ioc": [
+            "Malicious or suspicious use of msiexec.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "%temp%": {
+        "ioc": [
+            "Suspicious modification of, or execution out of, various %temp% directories"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "systeminfo": {
+        "ioc": [
+            "Host reconnaissance via systeminfo.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "ipconfig": {
+        "ioc": [
+            "Host reconnaissance via ipconfig.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "Webdav": {
+        "ioc": [
+            "Malicious or suspicious use of WebDAV protocol"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "curl": {
+        "ioc": [
+            "Default User Agent string curl/VERSION"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "Pastebin": {
+        "ioc": [
+            "Suspicious communication with external Pastebin location"
+        ],
+        "tools": [
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+        ]
+    },
+    "wscript": {
+        "ioc": [
+            "Malicious use of Windows Script Host, wscript.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "cscript": {
+        "ioc": [
+            "Malicious use of Windows Console Script Host, cscript.exe"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "NotPetya": {
+        "ioc": [
+            "Drops psexec with the filename dllhost.dat",
+            "Malicious use of SMB protocol",
+            "Malicious use of wmic.exe",
+            "Use of EternalBlue and EternalRomance to move laterally in target network"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs"
+        ]
+    },
+    "BlackEnergy": {
+        "ioc": [
+            "Drops its main DLL component and creates an .lnk shortcut to that file in the startup folder",
+            "Injects main DLL component into svchost.exe",
+            "Creates new services with either hardcoded or randomized names",
+            "Communication over HTTP"
+        ],
+        "tools": [
+            "Suricata",
+            "SysInternals",
+            "Windows Event Logs",
+            "IDS (Bro/Zeek",
+            "Firewall (ASA",
+            "FireEye HX",
+            "HBSS",
+            "Snort)",
+            "Web Proxy",
+            "Palo Alto)"
+        ]
+    },
+    "VBScript": {
+        "ioc": [
+            "Malicious use of Visual Basic Scripting language"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "ssl certificates": {
+        "ioc": [
+            "Suspicious or known malicious SSL/TLS certificates"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "tls": {
+        "ioc": [
+            "Suspicious or known malicious SSL/TLS certificates"
+        ],
+        "tools": [
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+        ]
+    },
+    "AMSI": {
+        "ioc": [
+            "https://www.trendmicro.com/en_us/research/22/l/detecting-windows-amsi-bypass-techniques.html"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "MS17-010": {
+        "ioc": [
+            "Exploitation of SMBv1 heap spraying bug",
+            "Integer overflow caused by memory allocation miscalculation",
+            "Buffer overflow caused by error validation between use of SMB_COM_NT_TRANSACT and SMB_COM_TRANSACTION2 subcommands packet sizes"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)"
+        ]
+    },
+    "powershell profile": {
+        "ioc": [
+            "Modification of $PROFILE variable"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS"
+        ]
+    },
+    "TrickBot": {
+        "ioc": [
+            "Malicious use of PowerShell",
+            "Communication over HTTPS",
+            "Utilizes EternalBlue and EternalRomance for lateral movement",
+            "Persistence established in the Startup folder"
+        ],
+        "tools": [
+            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)",
+            "Windows Event Logs, HBSS, FireEye HX"
+        ]
+    },
+    "spearphishing": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    }
+}
