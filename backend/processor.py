@@ -161,7 +161,7 @@ def get_apt_report(selected_apts, selected_tactics, include_desc, selected_datas
                                         mitre_detection_entries = list(mitre_detection_set)
                                         break
 
-                ioc_string = ", ".join(ioc_entries) if ioc_entries else "No IOCs Found"
+                ioc_string = ", ".join(ioc_entries) if ioc_entries else "No IOMs Found"
                 tool_string = ", ".join(set(matched_tools)) if matched_tools else "Unknown Tool"
 
                 row = [
