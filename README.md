@@ -1,5 +1,7 @@
 # PIRANHA 🐟  
 
+![piranha](images/piranha_logo.png)
+
 Piranha is an advanced cyber threat analysis and hunt planning tool that bridges the gap between intelligence analysts and defensive cyber operators. By simplifying the translation of Priority Intelligence Requirements (PIRs) into actionable hunt strategies, Piranha accelerates mission planning, enhances detection coverage, and supports data-driven decision making in cyber defense operations.
 
 ---
