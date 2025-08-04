@@ -47,8 +47,10 @@ Cyber intel teams often know **who** the threat actor is and **what** they're tr
 - Suggesting ideal tactic combinations based on analyst goals.
 - Enabling live visual and data-driven analysis.
 - Bridging data silos between threat intelligence and network defense.
-
 ---
+
+## To Do
+- Add support for multiple GPTs
 
 ## 📦 Installation
 
