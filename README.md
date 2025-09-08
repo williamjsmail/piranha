@@ -62,3 +62,24 @@ cd piranha
 pip install -r requirements.txt
 python piranha.py
 ```
+
+**Note on Headless Environments:**
+
+If you are running Piranha in a headless environment (e.g., on a server without a graphical interface), you may need to install additional dependencies and set an environment variable.
+
+First, install the required Qt dependencies:
+```bash
+sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+```
+
+Then, run the application with the `QT_QPA_PLATFORM` environment variable set to `offscreen`:
+```bash
+QT_QPA_PLATFORM=offscreen python piranha.py
+```
+
+## Repository Maintenance
+
+This repository was repaired to address several critical issues, including:
+
+*   **File Path Issues:** The application was unable to locate its data files due to inconsistent and incorrect file path construction. This was resolved by standardizing all file path access through a robust `resource_path` utility function.
+*   **Python Virtual Environment:** The application was failing to run due to issues with the Python virtual environment. These issues were a symptom of the underlying file path problems and were resolved by fixing the file paths and installing the necessary Qt dependencies.
