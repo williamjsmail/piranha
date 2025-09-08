@@ -1,45 +1,22 @@
 # PIRANHA 🐟  
-
-![piranha](images/piranha_logo.png)
-
 Piranha is an advanced cyber threat analysis and hunt planning tool that bridges the gap between intelligence analysts and defensive cyber operators. By simplifying the translation of Priority Intelligence Requirements (PIRs) into actionable hunt strategies, Piranha accelerates mission planning, enhances detection coverage, and supports data-driven decision making in cyber defense operations.
 
----
+![piranha](images/piranha_logo.png)
+![Piranha Desktop](https://startme-uploaded-files.s3.amazonaws.com/Uploaded-file-7881758-2025-9-8-599b2952f6d9e032.png)
 
 ## 🔍 Key Features
 
-- **APT-Centric Analysis**  
-  Select one or more APTs to instantly retrieve their associated MITRE ATT&CK tactics and techniques, including overlaps and patterns.
-
-- **IoM Graph Viewer**  
-  Visualize attack behavior using Indicators of Methodology (IoMs), with graph-based tracking of adversary TTP overlap.
-
-- **Tactic Optimization Engine**  
-  Input a desired number of tactics and receive an optimized combination that closely aligns with an ideal detection strategy.
-
-- **Radar Chart Visualization**  
-  See how a threat profile or hunt plan distributes across data component categories:  
-  - Host Collection  
-  - Network Collection  
+- **APT-Centric Analysis:** Instantly retrieve TTPs for selected threat actors.
+- **IoM Graph Viewer:** Visualize adversary behavior by methodology, including overlaps & relationships.
+- **Tactic Optimization Engine:** Get optimized tactic combinations for detection.
+- **Radar Chart Visualization:** Analyze threat or hunt plan distribution across core data categories:
+  - Host & Network Collection  
   - Host Interrogation  
   - Memory Analysis
-
-- **Nessus Scan Integration**  
-  Import Nessus XML scans to:
-  - Extract CVEs and map to ATT&CK techniques using `cve2capec`.
-  - Generate heatmaps based on APT usage, CVSS scores, and detection relevance.
-
-- **Threat Profile Builder**  
-  Define reusable profiles by combining APTs, tactics, and techniques for mission-specific or domain-focused threat modeling.
-
-- **Compare to Profile**  
-  Match imported scans against threat profiles and calculate a match score using F1 comparison logic.
-
-- **Extra Tools**
-  - Quick CVE mapper
-  - Automated CVE -> Technique DB Updating.
-  - AI Enrichment
----
+- **Nessus Scan Integration:** Import XML scans, map CVEs to ATT&CK techniques, and generate heatmaps.
+- **Threat Profile Builder:** Create and compare reusable threat profiles for defense planning.
+- **Export/Import:** Export reports as Excel, import/craft profiles (.pir).
+- **AI Enrichment:** Enrich report data using OpenAI's API.
 
 ## 🧠 Why Piranha?
 
@@ -49,37 +26,73 @@ Cyber intel teams often know **who** the threat actor is and **what** they're tr
 - Suggesting ideal tactic combinations based on analyst goals.
 - Enabling live visual and data-driven analysis.
 - Bridging data silos between threat intelligence and network defense.
----
-
-## To Do
-- Add support for multiple GPTs
 
 ## 📦 Installation
 
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/williamjsmail/piranha
+git clone https://github.com/HackingForNoobs/piranha.git
 cd piranha
+git checkout fix/repository-repair
+```
+
+### 2. Install Python 3.8+ (if needed)
+
+- [Download Python](https://www.python.org/downloads/) (choose "Add Python to PATH" during installation)
+- Confirm installation: `python --version`
+
+### 3. Set Up a Python Virtual Environment
+
+Windows
+```
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+macOS/Linux
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+```
+pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+### 5. [Optional] Install Qt Libraries (for Linux/Headless)
+
+If you get Qt-related errors (on servers or minimal distros):
+```bash
+sudo apt-get install -y libxcb*-dev libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+```
+
+### 6. Run the Application
+
+On desktop
+```
 python piranha.py
 ```
 
-**Note on Headless Environments:**
-
-If you are running Piranha in a headless environment (e.g., on a server without a graphical interface), you may need to install additional dependencies and set an environment variable.
-
-First, install the required Qt dependencies:
-```bash
-sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+On headless environments
 ```
-
-Then, run the application with the `QT_QPA_PLATFORM` environment variable set to `offscreen`:
-```bash
 QT_QPA_PLATFORM=offscreen python piranha.py
 ```
 
-## Repository Maintenance
+### 7. Deactivate environment when done
+```
+deactivate
+```
 
-This repository was repaired to address several critical issues, including:
+## Project Structure
 
-*   **File Path Issues:** The application was unable to locate its data files due to inconsistent and incorrect file path construction. This was resolved by standardizing all file path access through a robust `resource_path` utility function.
-*   **Python Virtual Environment:** The application was failing to run due to issues with the Python virtual environment. These issues were a symptom of the underlying file path problems and were resolved by fixing the file paths and installing the necessary Qt dependencies.
+```plaintext
+├── piranha.py          # Main app entry point
+├── requirements.txt    # Python requirements
+├── backend/            # Backend logic and helpers
+├── frontend/           # Frontend logic and UI modules
+├── backend/files/      # Data JSONs (enterprise-attack.json, etc.)
+├── profiles/           # Saved profile examples
+├── tests/              # Automated tests
+└── README.md           # Project documentation
