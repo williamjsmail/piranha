@@ -33,7 +33,6 @@ Cyber intel teams often know **who** the threat actor is and **what** they're tr
 ```bash
 git clone https://github.com/HackingForNoobs/piranha.git
 cd piranha
-git checkout fix/repository-repair
 ```
 
 ### 2. Install Python 3.8+ (if needed)
