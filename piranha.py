@@ -1124,8 +1124,7 @@ class PiranhaApp(QMainWindow):
         contact_text = (
 "<b>Contact Information</b><br><br>"
 "<b>Developer:</b> William J. Smail<br><br>"
-"<b>Phone:</b> (813) 826-2429. Please call between 0800 to 1530 Monday through Thursday. If there is no answer, please call later or contact by email.<br><br>"
-"<b>Email:</b> william.j.smail.mil@socom.mil<br><br>"
+"<b>Email:</b> support@piranha-tool.com<br><br>"
 "<b>Note:</b> For any changes you would like made to Piranha, please be as specific as possible. Please also include the reasons you would like the changes to be made."
         )
         help = HelpMenu("Contact Developer", contact_text)

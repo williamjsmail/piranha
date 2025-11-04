@@ -7,10 +7,10 @@
             "Communication with Dropbox cloud storage for C2"
         ],
         "tools": [
-            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)",
-            "Web Proxy, Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto)",
             "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto)",
-            "Windows Event Logs, Linux/Unix/macOS syslogs, HBSS"
+            "Windows Event Logs, Linux/Unix/macOS syslogs, HBSS",
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)",
+            "Web Proxy, Netflow (SiLK, IPFIX, Gigamon), Firewall (ASA, Palo Alto)"
         ]
     },
     "phish": {
@@ -174,11 +174,11 @@
             "Identification of specific files and folders for exfiltration"
         ],
         "tools": [
-            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Web Proxy",
             "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon)",
             "Windows Event Logs, SysInternals, HBSS",
             "Windows Event Logs, IDS (Bro/Zeek, Suricata, Snort)",
-            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Web Proxy"
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS"
         ]
     },
     "base64": {
@@ -274,8 +274,8 @@
             "Command line includes lsadump::"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS"
+            "File Access Logs (FTP, NFS, SMB), Windows Event Logs, HBSS",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "dumped the SAM file": {
@@ -419,9 +419,9 @@
             "Suspicious RC4 encrypted traffic"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
             "Vuln Scanner (ACAS), FireEye HX, HBSS",
-            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "Heyoka Backdoor": {
@@ -430,8 +430,8 @@
             "Embedded data in DNS subdomain or data fields"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)"
+            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "CVE-2012-0158": {
@@ -523,8 +523,8 @@
             "Logon Type 3 (network logon) with the Authentication Package set to NTLM"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "Active Directory Logs, Windows Event Logs, HBSS"
+            "Active Directory Logs, Windows Event Logs, HBSS",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "pass-the-hash": {
@@ -534,8 +534,8 @@
             "Logon Type 3 (network logon) with the Authentication Package set to NTLM"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "Active Directory Logs, Windows Event Logs, HBSS"
+            "Active Directory Logs, Windows Event Logs, HBSS",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "CVE-2009-3129": {
@@ -690,8 +690,8 @@
             "Embeds FLV object directly in ActionScript code"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus"
+            "IDS (Bro/Zeek, Suricata, Snort), Web Proxy, Antivirus",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "https": {
@@ -834,8 +834,8 @@
             "CVE 2020-0688 Sysmon EventID 4: Sysmon server state changed"
         ],
         "tools": [
-            "Web Server Logs, Windows Event Logs, HBSS",
             "Windows Event Logs, HBSS, FireEye HX",
+            "Web Server Logs, Windows Event Logs, HBSS",
             "Web Server Logs, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
         ]
     },
@@ -933,8 +933,8 @@
             "Malicious use of WMIC"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
             "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, SysInternals, HBSS",
             "Windows Event Logs, HBSS, FireEye HX"
         ]
     },
@@ -971,9 +971,9 @@
             "Network traffic to Twitter for the day's decryption key"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
+            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)",
             "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
-            "Web Proxy, Firewall (ASA, Palo Alto), IDS (Bro/Zeek, Suricata, Snort)"
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "Registry Run": {
@@ -1006,8 +1006,8 @@
             "Communication over HTTP"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
             "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, SysInternals, HBSS",
             "Windows Event Logs, HBSS, FireEye HX"
         ]
     },
@@ -1037,10 +1037,10 @@
             "Enumeration of HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography\\MachineGuid registry key"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
             "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
-            "Windows Event Logs, HBSS, FireEye HX",
-            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)"
+            "IDS (Bro/Zeek, Suricata, Snort), DNS Logs (Bind)",
+            "Windows Event Logs, SysInternals, HBSS",
+            "Windows Event Logs, HBSS, FireEye HX"
         ]
     },
     "FatDuke": {
@@ -1051,8 +1051,8 @@
             "Modification of registry key HKLM\\SOFTWARE\\Microsoft\\CurrentVersion\\Run"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
             "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, SysInternals, HBSS",
             "Windows Event Logs, HBSS, FireEye HX"
         ]
     },
@@ -1541,8 +1541,8 @@
             "Communication over HTTP/S"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)"
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "LSASS": {
@@ -1690,8 +1690,8 @@
             "Execution and subsequent deletion of .bat file"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs"
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs",
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "cmstp": {
@@ -1939,9 +1939,9 @@
             "Use of EternalBlue and EternalRomance to move laterally in target network"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
+            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs",
             "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)",
-            "IDS (Bro/Zeek, Suricata, Snort), Netflow (SiLK, IPFIX, Gigamon), Windows Event Logs"
+            "Windows Event Logs, SysInternals, HBSS"
         ]
     },
     "BlackEnergy": {
@@ -1952,16 +1952,16 @@
             "Communication over HTTP"
         ],
         "tools": [
-            "Suricata",
-            "SysInternals",
-            "Windows Event Logs",
-            "IDS (Bro/Zeek",
             "Firewall (ASA",
+            "Web Proxy",
+            "SysInternals",
             "FireEye HX",
             "HBSS",
-            "Snort)",
-            "Web Proxy",
-            "Palo Alto)"
+            "Suricata",
+            "Windows Event Logs",
+            "Palo Alto)",
+            "IDS (Bro/Zeek",
+            "Snort)"
         ]
     },
     "VBScript": {
@@ -2022,13 +2022,54 @@
             "Persistence established in the Startup folder"
         ],
         "tools": [
-            "Windows Event Logs, SysInternals, HBSS",
-            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
             "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Netflow (SiLK, IPFIX, Gigamon)",
+            "Web Proxy, IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto)",
+            "Windows Event Logs, SysInternals, HBSS",
             "Windows Event Logs, HBSS, FireEye HX"
         ]
     },
     "spearphishing": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "cve-2018-0171": {
+        "ioc": [
+            "Malicious Smart Install messages sent to port 4786",
+            "\"Tconfigure tftp-server nvram:startup-config\" in packet data"
+        ],
+        "tools": [
+            "IDS (Bro/Zeek, Suricata, Snort), Firewall (ASA, Palo Alto), Web Server Logs"
+        ]
+    },
+    "e-mail": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "e-mails": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "email": {
+        "ioc": [
+            "Malicious or suspicious attachments or URLs in email"
+        ],
+        "tools": [
+            "Email (SMTP, IMAP, MAPI, POP), Email Security (EEMSG/ZND), Web Proxy"
+        ]
+    },
+    "emails": {
         "ioc": [
             "Malicious or suspicious attachments or URLs in email"
         ],
